@@ -15,8 +15,9 @@ KeSpeech-local:
 
 
 KeSpeech:
-  class: audio_evals.datasets.dataset.ASR
+  class: audio_evals.datasets.dataset.RelativeASR
   args:
-    default_task: alei_asr
-    f_name: /mnt/data/user/tc_agi/AudioEvals/KeSpeech/test/sample.jsonl
+    default_task: KeSpeech
+    f_name: /mnt/data/user/tc_agi/AudioEvals/KeSpeech/test/output.jsonl
     ref_col: Text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/KeSpeech/
