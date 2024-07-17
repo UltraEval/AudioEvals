@@ -40,7 +40,7 @@ multi-libri:
           - type: audio
             value: "{{WavPath}}"
           - type: text
-            value: "output the content with format{\"content\": \"\"}"
+            value: "output the content with format {\"content\": \"\"}"
 
 convost2_en_zh:
   class: audio_evals.prompt.Prompt
@@ -51,4 +51,4 @@ convost2_en_zh:
           - type: audio
             value: "{{audio}}"
           - type: text
-            value: "translate english audio to chinese, output the content with format{\"content\": \"\"}"
+            value: "translate english audio to chinese, output the content with format {\"content\": \"\"}"
