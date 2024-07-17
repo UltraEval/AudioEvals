@@ -17,6 +17,8 @@ def get_args():
     parser.add_argument('--agg', default='')
     parser.add_argument('--post_process', default='')
     parser.add_argument('--save', default='')
+    parser.add_argument('--registry_path', default='')
+    parser.add_argument('--debug_mode', type=int, default=0)
 
     args = parser.parse_args()
     args.post_process = args.post_process.split()
@@ -25,12 +27,17 @@ def get_args():
 
 def main():
     time_id = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    logging.basicConfig(level=logging.DEBUG,
+    args = get_args()
+
+    logging.basicConfig(level=logging.DEBUG if args.debug_mode else logging.INFO,
                         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                         handlers=[logging.FileHandler(f'app-{time_id}.log'), logging.StreamHandler()])
-    args = get_args()
     if not args.save:
         args.save = f'log/{time_id}.jsonl'
+
+    if args.registry_path:
+        paths = args.registry_path.split()
+        registry.add_registry_paths(paths)
 
     dataset = registry.get_dataset(args.dataset)
     task_cfg = registry.get_eval_task(dataset.task_name)

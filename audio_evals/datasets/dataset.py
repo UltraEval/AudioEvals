@@ -1,7 +1,7 @@
 import json
 import os.path
 from abc import ABC, abstractmethod
-from typing import List, Dict, Generator
+from typing import List, Dict, Generator, Any
 
 
 class Dataset(ABC):
@@ -11,16 +11,15 @@ class Dataset(ABC):
         self.ref_col = ref_col
 
     @abstractmethod
-    def load(self) -> Generator[Dict[str, any], None, None]:
+    def load(self) -> List[Dict[str, any]]:
         raise NotImplementedError()
 
 
 class ASR(Dataset):
 
-    def load(self) -> Generator[Dict[str, any], None, None]:
+    def load(self) -> List[Dict[str, any]]:
         with open(self.f_name) as f:
-            for line in f:
-                yield json.loads(line)
+            return [json.loads(line) for line in f]
 
 
 class RelativeASR(Dataset):
@@ -30,7 +29,8 @@ class RelativeASR(Dataset):
             file_path_prefix += '/'
         self.file_path = file_path_prefix
 
-    def load(self) -> Generator[Dict[str, any], None, None]:
+    def load(self) -> List[Dict[str, any]]:
+        res = []
         with open(self.f_name) as f:
             for line in f:
                 doc = json.loads(line)
@@ -38,4 +38,5 @@ class RelativeASR(Dataset):
                     temp = os.path.join(self.file_path, v)
                     if os.path.exists(temp):
                         doc[k] = temp
-                yield doc
+                res.append(doc)
+        return res
