@@ -1,0 +1,11 @@
+transformers>=4.37.0
+accelerate>=0.20.3
+einops
+matplotlib
+pandas
+pillow
+scipy
+tensorboard
+tiktoken
+openai
+transformers_stream_generator==0.0.4

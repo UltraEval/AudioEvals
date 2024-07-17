@@ -1,0 +1,63 @@
+multi-lib-mls_dutch-local:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /Users/a1/project/AudioEvals/raw_data/facebook_multilingual_librispeech/mls_dutch/sample.jsonl
+    ref_col: Text
+    file_path_prefix: /Users/a1/project/AudioEvals/raw_data/facebook_multilingual_librispeech/
+
+mls_dutch:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_dutch/output.jsonl
+    ref_col: Text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
+
+mls_french:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_french/output.jsonl
+    ref_col: Text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
+
+mls_german:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_german/output.jsonl
+    ref_col: Text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
+
+mls_italian:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_italian/output.jsonl
+    ref_col: Text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
+
+mls_polish:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_polish/output.jsonl
+    ref_col: Text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
+
+mls_portuguese:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_portuguese/output.jsonl
+    ref_col: Text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
+
+mls_spanish:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_spanish/output.jsonl
+    ref_col: Text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/

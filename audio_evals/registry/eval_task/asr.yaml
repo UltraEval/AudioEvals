@@ -1,0 +1,36 @@
+convost2_en_zh:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: convost2-local
+    prompt: convost2_en_zh
+    model: qwen-audio
+    evaluator: cer
+    agg: mean
+
+multi-libri-asr:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: alei_asr
+    prompt: multi-libri
+    model: qwen-audio
+    evaluator: wer
+    agg: mean
+
+alei_asr:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: alei
+    prompt: alei
+    model: qwen-audio
+    evaluator: cer
+    agg: mean
+
+
+KeSpeech:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: KeSpeech
+    prompt: KeSpeech
+    model: qwen-audio
+    evaluator: cer
+    agg: mean

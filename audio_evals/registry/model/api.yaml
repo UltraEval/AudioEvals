@@ -1,0 +1,18 @@
+gpt4o:
+  class: audio_evals.models.llmcenter.LlmCenterModel
+  args:
+    model_id: 108
+    is_chat: true
+
+qwen-audio:
+  class: audio_evals.models.llmcenter.LlmCenterModel
+  args:
+    model_id: 137
+    is_chat: true
+
+
+gemini-flash:
+  class: audio_evals.models.llmcenter.LlmCenterModel
+  args:
+    model_id: 139
+    is_chat: true

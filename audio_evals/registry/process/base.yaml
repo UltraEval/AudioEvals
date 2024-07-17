@@ -1,0 +1,3 @@
+json_content:
+  class: audio_evals.process.ContentExtract
+  args: {}

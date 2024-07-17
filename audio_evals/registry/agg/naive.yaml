@@ -1,0 +1,11 @@
+acc:
+  class: audio_evals.agg.ACC
+  args:
+    need_score_col:
+      - match
+
+mean:
+  class: audio_evals.agg.Mean
+  args:
+    need_score_col:
+      - match
