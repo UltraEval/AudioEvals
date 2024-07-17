@@ -19,7 +19,7 @@ class OfflineModel(Model):
         self.tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True)
 
     def _inference(self, prompt: PromptStruct, **kwargs):
-        vl_list = [{"audio": s["value"]} if s["type"] == "audio" else {"text": s["value"]} for line in prompt for s in line]
+        vl_list = [{"audio": s["value"]} if s["type"] == "audio" else {"text": s["value"]} for line in prompt for s in line["contents"]]
         logger.debug(f"the input is {vl_list}")
         query = self.tokenizer.from_list_format(vl_list)
         generated_text, _ = self.model.chat(self.tokenizer, query=query, history=None, **kwargs)

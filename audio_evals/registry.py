@@ -8,7 +8,7 @@ import functools
 import logging
 import os
 from pathlib import Path
-from typing import Any, Generator, Iterator, Optional, Sequence, Tuple, Type, TypeVar, Union
+from typing import Any, Generator, Iterator, Optional, Sequence, Tuple, Type, TypeVar, Union, Dict
 
 import yaml
 
@@ -27,7 +27,7 @@ SPEC_RESERVED_KEYWORDS = ["key", "group", "cls"]
 
 
 T = TypeVar("T")
-RawRegistry = dict[str, Any]
+RawRegistry = Dict[str, Any]
 DEFAULT_PATHS = [Path(__file__).parents[0].resolve() / "registry"]
 
 
