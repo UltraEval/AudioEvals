@@ -1,5 +1,5 @@
 qwen-audio-offline:
-  class: aaudio_evals.models.offline_model.OfflineModel
+  class: audio_evals.models.offline_model.OfflineModel
   args:
     is_chat: true
     path: /mnt/data/user/tc_agi/UltraEval/open_models/modelscope/hub/qwen/Qwen-Audio-Chat
