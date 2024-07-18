@@ -10,8 +10,8 @@ from audio_evals.base import ScoreUnit
 from audio_evals.datasets.dataset import Dataset
 from audio_evals.evaluator.base import Evaluator
 from audio_evals.models.model import Model
-from audio_evals.process import Process
-from audio_evals.prompt import Prompt
+from audio_evals.process.base import Process
+from audio_evals.prompt.base import Prompt
 from audio_evals.recorder import Recorder
 
 
@@ -52,7 +52,8 @@ class EvalTask:
         :return:
         """
         res, answers = [], []
-        for i, doc in tqdm(enumerate(self.dataset.load())):
+        quiz = self.dataset.load()
+        for i, doc in tqdm(enumerate(quiz), total=len(quiz)):
             real_prompt = self.prompt.load(**doc)
             try:
                 score, ans = self._eval(i, real_prompt, doc.get(self.dataset.ref_col, ''), **doc)

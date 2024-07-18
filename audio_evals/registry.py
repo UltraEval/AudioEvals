@@ -17,8 +17,8 @@ from audio_evals.base import EvalTaskCfg
 from audio_evals.datasets.dataset import Dataset
 from audio_evals.evaluator.base import Evaluator
 from audio_evals.models.model import Model
-from audio_evals.process import Process
-from audio_evals.prompt import Prompt
+from audio_evals.process.base import Process
+from audio_evals.prompt.base import Prompt
 from audio_evals.utils import make_object
 
 logger = logging.getLogger(__name__)
