@@ -1,3 +1,9 @@
 json_content:
-  class: audio_evals.process.ContentExtract
+  class: audio_evals.process.base.ContentExtract
   args: {}
+
+
+qwen_pretrain_asr_tractor_zh:
+  class: audio_evals.process.qwen.QwenAudioASRExtract
+  args:
+    lang: zh

@@ -1,5 +1,5 @@
 asr:
-  class: audio_evals.prompt.Prompt
+  class: audio_evals.prompt.base.Prompt
   args:
     template:
       - role: user
@@ -10,7 +10,7 @@ asr:
             value: 这个语音说了什么
 
 alei:
-  class: audio_evals.prompt.Prompt
+  class: audio_evals.prompt.base.Prompt
   args:
     template:
       - role: user
@@ -21,7 +21,7 @@ alei:
             value: 回复语音内容
 
 KeSpeech:
-  class: audio_evals.prompt.Prompt
+  class: audio_evals.prompt.base.Prompt
   args:
     template:
       - role: user
@@ -32,7 +32,7 @@ KeSpeech:
             value: "输出语音内容，格式为{\"content\": \"\"}"
 
 multi-libri:
-  class: audio_evals.prompt.Prompt
+  class: audio_evals.prompt.base.Prompt
   args:
     template:
       - role: user
@@ -43,7 +43,7 @@ multi-libri:
             value: "output the content with format {\"content\": \"\"}"
 
 convost2_en_zh:
-  class: audio_evals.prompt.Prompt
+  class: audio_evals.prompt.base.Prompt
   args:
     template:
       - role: user

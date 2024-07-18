@@ -51,5 +51,6 @@ class OfflinePretrainModel(Model):
         inputs = inputs.to(self.model.device)
         pred = self.model.generate(**inputs, audio_info=audio_info)
         response = self.tokenizer.decode(pred.cpu()[0], skip_special_tokens=False, audio_info=audio_info)
+        response = response[len(prompt):]
         logger.debug(f"the output is {response}")
         return response
