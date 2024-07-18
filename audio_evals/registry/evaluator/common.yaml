@@ -9,3 +9,17 @@ wer:
 cer:
   class: audio_evals.evaluator.wer.CER
   args: {}
+
+bleu:
+  class: audio_evals.evaluator.bleu.BLEU
+  args: {}
+
+bleu-zh:
+  class: audio_evals.evaluator.bleu.BLEU
+  args:
+    lang: zh
+
+bleu-jp:
+  class: audio_evals.evaluator.bleu.BLEU
+  args:
+    lang: jp

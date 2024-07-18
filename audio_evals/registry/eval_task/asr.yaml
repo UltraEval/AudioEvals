@@ -4,7 +4,7 @@ convost2_en_zh:
     dataset: convost2-local
     prompt: convost2_en_zh
     model: qwen-audio
-    evaluator: cer
+    evaluator: bleu-zh
     agg: mean
 
 multi-libri-asr:

@@ -5,3 +5,11 @@ convost2-local:
     f_name: /Users/a1/project/AudioEvals/raw_data/convost2/sample.jsonl
     ref_col: text
     file_path_prefix: /Users/a1/project/AudioEvals/raw_data/convost2/audio
+
+convost2-en-zh:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: convost2_en_zh
+    f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_zh-CN_test.jsonl
+    ref_col: text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
