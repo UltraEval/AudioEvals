@@ -35,7 +35,7 @@ class RelativeASR(Dataset):
             for line in f:
                 doc = json.loads(line)
                 for k, v in doc.items():
-                    temp = os.path.join(self.file_path, v)
+                    temp = os.path.join(self.file_path, str(v))
                     if os.path.exists(temp):
                         doc[k] = temp
                 res.append(doc)
