@@ -1,0 +1,9 @@
+qwen-audio-en:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|transcribe|><|en|><|notimestamps|><|wo_itn|>"
+
+qwen-audio-en2de:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|transcribe|><|de|><|notimestamps|><|wo_itn|>"

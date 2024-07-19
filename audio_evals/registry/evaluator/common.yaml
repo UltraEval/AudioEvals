@@ -6,6 +6,11 @@ wer:
   class: audio_evals.evaluator.wer.WER
   args: {}
 
+wer-ignore-case:
+  class: audio_evals.evaluator.wer.WER
+  args:
+    ignore_case: true
+
 cer:
   class: audio_evals.evaluator.wer.CER
   args: {}

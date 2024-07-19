@@ -1,0 +1,15 @@
+librispeech-test-clean:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/librispeech/test_clean.jsonl
+    ref_col: text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/
+
+librispeech-dev-clean:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/librispeech/dev_clean.jsonl
+    ref_col: text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/
