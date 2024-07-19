@@ -32,8 +32,10 @@ def main():
     logging.basicConfig(level=logging.DEBUG if args.debug_mode else logging.INFO,
                         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                         handlers=[logging.FileHandler(f'app-{time_id}.log'), logging.StreamHandler()])
+    logger = logging.getLogger(__name__)
+
     if not args.save:
-        args.save = f'log/{time_id}.jsonl'
+        args.save = f'log/{time_id}-{args.model}-{args.dataset}.jsonl'
 
     if args.registry_path:
         paths = args.registry_path.split()
@@ -46,6 +48,7 @@ def main():
     for attr in dir(args):
         if not attr.startswith('__') and attr in attrs and getattr(args, attr):
             setattr(task_cfg, attr, getattr(args, attr))
+    logger.info('task cfg:\n{}'.format(task_cfg))
 
     t = EvalTask(dataset=dataset,
                  prompt=registry.get_prompt(task_cfg.prompt),

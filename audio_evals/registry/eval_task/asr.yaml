@@ -2,7 +2,7 @@ convost2_en_zh:
   class: audio_evals.base.EvalTaskCfg
   args:
     dataset: convost2-local
-    prompt: convost2_en_zh
+    prompt: convost2-en-zh
     model: qwen-audio
     evaluator: bleu-zh
     agg: mean

@@ -1,5 +1,6 @@
 from audio_evals.base import PromptStruct
-from jinja2 import Template
+from jinja2 import Template, StrictUndefined
+from jinja2.exceptions import UndefinedError
 from functools import singledispatch
 from typing import Any, List, Dict
 
@@ -11,8 +12,11 @@ def _load(t: Any, **kwargs: Any) -> Any:
 
 @_load.register
 def _(t: str, **kwargs: Any) -> str:
-    template = Template(t)
-    return template.render(**kwargs)
+    template = Template(t, undefined=StrictUndefined)
+    try:
+        return template.render(**kwargs)
+    except UndefinedError as e:
+        raise ValueError('{}: template is {}\ndoc is {}'.format(e, t, kwargs))
 
 
 @_load.register
