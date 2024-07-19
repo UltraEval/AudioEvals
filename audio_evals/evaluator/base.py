@@ -8,6 +8,12 @@ class Evaluator(ABC):
         raise NotImplementedError()
 
 
+class Dump(Evaluator):
+
+    def __call__(self, *args, **kwargs):
+        return {}
+
+
 class EM(Evaluator):
 
     def __call__(self, pred, label, **kwargs) -> Dict[str, any]:

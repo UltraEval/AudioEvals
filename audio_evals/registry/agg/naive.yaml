@@ -1,3 +1,7 @@
+dump:
+  class: audio_evals.agg.Dump
+  args: {}
+
 acc:
   class: audio_evals.agg.ACC
   args:

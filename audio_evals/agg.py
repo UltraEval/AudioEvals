@@ -19,6 +19,12 @@ class AggPolicy(ABC):
         return self._agg(score_detail)
 
 
+class Dump(AggPolicy):
+
+    def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
+        return {}
+
+
 class ACC(AggPolicy):
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
