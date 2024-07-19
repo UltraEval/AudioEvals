@@ -1,0 +1,8 @@
+convost2:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: KeSpeech
+    prompt: KeSpeech
+    model: qwen-audio
+    evaluator: bleu-zh
+    agg: mean
