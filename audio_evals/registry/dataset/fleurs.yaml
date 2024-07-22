@@ -1,0 +1,7 @@
+fleurs-zh:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: KeSpeech
+    f_name: /mnt/data/user/tc_agi/AudioEvals/fleurs/output.jsonl
+    ref_col: raw_transcription
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/fleurs/

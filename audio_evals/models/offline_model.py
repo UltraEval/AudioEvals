@@ -33,8 +33,8 @@ class OfflineModel(Model):
 
 
 class OfflinePretrainModel(Model):
-    def __init__(self, is_chat: bool, path: str):
-        super().__init__(False)
+    def __init__(self, is_chat: bool, path: str, padding_side: str = '', sample_params: Dict[str, any] = None):
+        super().__init__(False, sample_params)
         logger.debug('start load model from {}'.format(path))
         self.model = AutoModelForCausalLM.from_pretrained(
             path,
@@ -44,6 +44,8 @@ class OfflinePretrainModel(Model):
         logger.debug('successfully load model from {}'.format(path))
 
         self.tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True)
+        if padding_side:
+            self.tokenizer.padding_side = padding_side
 
     def _inference(self, prompt: PromptStruct, **kwargs) -> str:
         assert isinstance(prompt, str), "pretrain model only receive string"
@@ -53,6 +55,9 @@ class OfflinePretrainModel(Model):
         inputs = inputs.to(self.model.device)
         pred = self.model.generate(**inputs, **kwargs, audio_info=audio_info)
         response = self.tokenizer.decode(pred.cpu()[0], skip_special_tokens=False, audio_info=audio_info)
-        response = response[len(prompt):]
+        response = response[len(prompt):].strip()
         logger.debug(f"the output is {response}")
         return response
+
+
+

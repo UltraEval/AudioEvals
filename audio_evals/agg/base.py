@@ -77,8 +77,8 @@ class BLEU(AggPolicy):
         elif lang == "ja":
             self.lang = "ja-mecab"
 
-    def __call__(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
-        predl, refl = [str(item['pred']) for item in score_detail['ref']], [str(item) for item in score_detail]
+    def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
+        predl, refl = [str(item['pred']) for item in score_detail], [str(item) for item in score_detail]
 
         pred, ref = [], []
         for p, r in zip(predl, refl):

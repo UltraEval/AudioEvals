@@ -3,6 +3,14 @@ qwen-audio-offline:
   args:
     is_chat: true
     path: /mnt/data/user/tc_agi/UltraEval/open_models/modelscope/hub/qwen/Qwen-Audio-Chat
+
+
+qwen-audio-pretrain-offline:
+  class: audio_evals.models.offline_model.OfflinePretrainModel
+  args:
+    is_chat: False
+    path: /mnt/data/user/tc_agi/UltraEval/open_models/modelscope/hub/qwen/Qwen-Audio
+    padding_side: left
     sample_params:
       do_sample: false
       max_new_tokens: 256
