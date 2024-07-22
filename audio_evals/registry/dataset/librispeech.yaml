@@ -13,3 +13,19 @@ librispeech-dev-clean:
     f_name: /mnt/data/user/tc_agi/AudioEvals/librispeech/dev_clean.jsonl
     ref_col: text
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/
+
+librispeech-test-other:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/librispeech/test_other.jsonl
+    ref_col: text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/
+
+librispeech-dev-other:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: multi-libri-asr
+    f_name: /mnt/data/user/tc_agi/AudioEvals/librispeech/dev_other.jsonl
+    ref_col: text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/
