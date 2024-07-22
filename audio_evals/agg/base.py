@@ -29,7 +29,7 @@ class WER(AggPolicy):
         self.ignore_case = ignore_case
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
-        predl, refl = [str(item) for item in score_detail['pred']], [str(item) for item in score_detail['ref']]
+        predl, refl = [str(item['pred']) for item in score_detail], [str(item['ref']) for item in score_detail]
         if self.ignore_case:
             predl, refl = [item.lower() for item in predl], [item.lower() for item in refl]
         return {'wer': wer(predl, refl)}
@@ -41,7 +41,7 @@ class CER(AggPolicy):
         self.ignore_case = ignore_case
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
-        predl, refl = [str(item) for item in score_detail['pred']], [str(item) for item in score_detail['ref']]
+        predl, refl = [str(item['pred']) for item in score_detail['pred']], [str(item['ref']) for item in score_detail]
         if self.ignore_case:
             predl, refl = [item.lower() for item in predl], [item.lower() for item in refl]
         return {'cer': cer(predl, refl)}
@@ -78,7 +78,7 @@ class BLEU(AggPolicy):
             self.lang = "ja-mecab"
 
     def __call__(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
-        predl, refl = [str(item) for item in score_detail['pred']], [str(item) for item in score_detail['ref']]
+        predl, refl = [str(item['pred']) for item in score_detail['ref']], [str(item) for item in score_detail]
 
         pred, ref = [], []
         for p, r in zip(predl, refl):
