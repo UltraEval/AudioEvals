@@ -10,6 +10,6 @@ class BLEU(Evaluator):
         elif lang == "ja":
             self.lang = "ja-mecab"
 
-    def __call__(self, pred: str, label: str, **kwargs):
+    def _eval(self, pred: str, label: str, **kwargs):
         res = sacrebleu.corpus_bleu([pred], [[label]], tokenize=self.lang)
-        return {'match': res.score}
+        return {'bleu': res.score}

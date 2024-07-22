@@ -7,7 +7,7 @@ class WER(Evaluator):
     def __init__(self, ignore_case: bool = False):
         self.ignore_case = ignore_case
 
-    def __call__(self, pred: str, label: str, **kwargs):
+    def _eval(self, pred: str, label: str, **kwargs):
         pred, label = str(pred), str(label)
         if self.ignore_case:
             pred, label = pred.lower(), label.lower()
@@ -18,7 +18,7 @@ class CER(Evaluator):
     def __init__(self, ignore_case: bool = False):
         self.ignore_case = ignore_case
 
-    def __call__(self, pred: str, label: str, **kwargs):
+    def _eval(self, pred: str, label: str, **kwargs):
         pred, label = str(pred), str(label)
         if self.ignore_case:
             pred, label = pred.lower(), label.lower()

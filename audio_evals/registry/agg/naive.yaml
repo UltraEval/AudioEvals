@@ -1,15 +1,38 @@
 dump:
-  class: audio_evals.agg.Dump
+  class: audio_evals.agg.base.Dump
   args: {}
 
 acc:
-  class: audio_evals.agg.ACC
-  args:
-    need_score_col:
-      - match
+  class: audio_evals.agg.base.ACC
+  args: {}
 
 mean:
-  class: audio_evals.agg.Mean
+  class: audio_evals.agg.base.ACC
+  args: {}
+
+wer:
+  class: audio_evals.agg.base.WER
+  args: {}
+
+wer-ignore-case:
+  class: audio_evals.agg.base.WER
   args:
-    need_score_col:
-      - match
+    ignore_case: true
+
+cer:
+  class: audio_evals.agg.base.base.CER
+  args: {}
+
+bleu:
+  class: audio_evals.evaluator.bleu.BLEU
+  args: {}
+
+bleu-zh:
+  class: audio_evals.evaluator.bleu.BLEU
+  args:
+    lang: zh
+
+bleu-jp:
+  class: audio_evals.evaluator.bleu.BLEU
+  args:
+    lang: jp

@@ -40,6 +40,7 @@ class EvalTask:
         self.recorder.add({'type': 'inference', 'id': idx, 'data': {'content': output}})
         for p in self.post_process:
             output = p(output)
+        self.recorder.add({'type': 'post_process', 'id': idx, 'data': {'content': output}})
         score = self.evaluator(output, reference, **kwargs)
         self.recorder.add({'type': 'eval', 'id': idx, 'data': score})
         return score, output

@@ -22,6 +22,6 @@ class EvalTaskCfg:
     dataset: str
     prompt: str
     model: str
-    evaluator: str
-    agg: str
+    agg: str = 'dump'
+    evaluator: str = 'dump'
     post_process: List[str] = field(default_factory=list)

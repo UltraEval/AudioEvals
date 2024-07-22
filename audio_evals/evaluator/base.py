@@ -3,20 +3,26 @@ from typing import Dict
 
 
 class Evaluator(ABC):
+
     @abstractmethod
-    def __call__(self, pred, label, **kwargs) -> Dict[str, any]:
+    def _eval(self, pred, label, **kwargs) -> Dict[str, any]:
         raise NotImplementedError()
+
+    def __call__(self, pred, label, **kwargs) -> Dict[str, any]:
+        res = self._eval(pred, label, **kwargs)
+        res.update({'pred': pred, 'ref': label})
+        return res
 
 
 class Dump(Evaluator):
 
-    def __call__(self, *args, **kwargs):
+    def _eval(self, pred, label, **kwargs):
         return {}
 
 
 class EM(Evaluator):
 
-    def __call__(self, pred, label, **kwargs) -> Dict[str, any]:
+    def _eval(self, pred, label, **kwargs) -> Dict[str, any]:
         if type(label) in [int, float]:
             pred, label = float(pred), float(label)
         elif isinstance(label, str):
