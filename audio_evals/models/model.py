@@ -1,4 +1,6 @@
 from abc import ABC, abstractmethod
+from copy import deepcopy
+from typing import Dict
 
 from audio_evals.base import PromptStruct
 from audio_evals.utils import retry
@@ -7,8 +9,11 @@ from audio_evals.utils import retry
 
 
 class Model(ABC):
-    def __init__(self, is_chat: bool):
+    def __init__(self, is_chat: bool, sample_params: Dict[str, any] = None):
         self.is_chat = is_chat
+        if sample_params is None:
+            sample_params = {}
+        self.sample_params = sample_params
 
     @abstractmethod
     def _inference(self, prompt: PromptStruct, **kwargs):
@@ -18,7 +23,9 @@ class Model(ABC):
         if isinstance(prompt, list) and not self.is_chat:
             raise ValueError('struct input not match pre-train model')
 
-        return self._inference(prompt, **kwargs)
+        sample_params = deepcopy(self.sample_params)
+        sample_params.update(kwargs)
+        return self._inference(prompt, **sample_params)
 
 
 class APIModel(Model):

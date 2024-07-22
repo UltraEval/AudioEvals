@@ -41,7 +41,7 @@ class CER(AggPolicy):
         self.ignore_case = ignore_case
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
-        predl, refl = [str(item['pred']) for item in score_detail['pred']], [str(item['ref']) for item in score_detail]
+        predl, refl = [str(item['pred']) for item in score_detail], [str(item['ref']) for item in score_detail]
         if self.ignore_case:
             predl, refl = [item.lower() for item in predl], [item.lower() for item in refl]
         return {'cer': cer(predl, refl)}

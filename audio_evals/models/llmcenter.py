@@ -1,5 +1,7 @@
 import os
 import time
+from typing import Dict
+
 import requests
 
 from audio_evals.base import EarlyStop
@@ -14,8 +16,8 @@ class LlmCenterModel(APIModel):
     timeout = 3600 * 24 * 7
     exp_time = 0
 
-    def __init__(self, is_chat, model_id: int):
-        super().__init__(is_chat)
+    def __init__(self, is_chat, model_id: int, sample_params: Dict[str, any] = None):
+        super().__init__(is_chat, sample_params)
         self.model_id = model_id
 
     @classmethod

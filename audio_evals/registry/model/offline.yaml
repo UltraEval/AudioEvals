@@ -3,4 +3,11 @@ qwen-audio-offline:
   args:
     is_chat: true
     path: /mnt/data/user/tc_agi/UltraEval/open_models/modelscope/hub/qwen/Qwen-Audio-Chat
-
+    sample_params:
+      do_sample: false
+      max_new_tokens: 256
+      min_new_tokens: 1
+      length_penalty: 1.0
+      num_return_sequences: 1
+      repetition_penalty: 1.0
+      use_cache: True

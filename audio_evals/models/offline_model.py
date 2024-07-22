@@ -1,3 +1,5 @@
+from typing import Dict
+
 from audio_evals.base import PromptStruct
 from audio_evals.models.model import Model
 from transformers import AutoModelForCausalLM
@@ -9,8 +11,8 @@ logger = logging.getLogger(__name__)
 
 
 class OfflineModel(Model):
-    def __init__(self, is_chat: bool, path: str):
-        super().__init__(is_chat)
+    def __init__(self, is_chat: bool, path: str, sample_params: Dict[str, any] = None):
+        super().__init__(is_chat, sample_params)
         logger.debug('start load model from {}'.format(path))
         self.model = AutoModelForCausalLM.from_pretrained(
             path,
@@ -49,7 +51,7 @@ class OfflinePretrainModel(Model):
         audio_info = self.tokenizer.process_audio(prompt)
         inputs = self.tokenizer(prompt, return_tensors='pt', audio_info=audio_info)
         inputs = inputs.to(self.model.device)
-        pred = self.model.generate(**inputs, audio_info=audio_info)
+        pred = self.model.generate(**inputs, **kwargs, audio_info=audio_info)
         response = self.tokenizer.decode(pred.cpu()[0], skip_special_tokens=False, audio_info=audio_info)
         response = response[len(prompt):]
         logger.debug(f"the output is {response}")
