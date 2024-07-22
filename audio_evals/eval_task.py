@@ -5,7 +5,7 @@ from typing import List, Union, Dict, Tuple
 
 from tqdm import tqdm
 
-from audio_evals.agg import AggPolicy
+from audio_evals.agg.base import AggPolicy
 from audio_evals.base import ScoreUnit
 from audio_evals.datasets.dataset import Dataset
 from audio_evals.evaluator.base import Evaluator

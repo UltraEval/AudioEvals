@@ -12,7 +12,7 @@ from typing import Any, Generator, Iterator, Optional, Sequence, Tuple, Type, Ty
 
 import yaml
 
-from audio_evals.agg import AggPolicy
+from audio_evals.agg.base import AggPolicy
 from audio_evals.base import EvalTaskCfg
 from audio_evals.datasets.dataset import Dataset
 from audio_evals.evaluator.base import Evaluator
