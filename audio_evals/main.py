@@ -19,6 +19,7 @@ def get_args():
     parser.add_argument('--save', default='')
     parser.add_argument('--registry_path', default='')
     parser.add_argument('--debug_mode', type=int, default=0)
+    parser.add_argument('--limit', type=int, default=99999)
 
     args = parser.parse_args()
     args.post_process = args.post_process.split()
@@ -57,7 +58,7 @@ def main():
                  post_process=[registry.get_process(item) for item in task_cfg.post_process],
                  agg=registry.get_agg(task_cfg.agg),
                  recorder=Recorder(args.save))
-    res = t.run()
+    res = t.run(args.limit)
     print(res[0])
     put_to_hdfs(args.save, '/user/tc_agi/AudioEvals/log/')
 

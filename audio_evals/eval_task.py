@@ -46,7 +46,7 @@ class EvalTask:
         return score, output
 
     @lru_cache(maxsize=None)
-    def run(self,) -> Tuple[ScoreUnit, List[ScoreUnit], List[str]]:
+    def run(self, limit=None) -> Tuple[ScoreUnit, List[ScoreUnit], List[str]]:
         """
         eval
         :param :
@@ -54,6 +54,8 @@ class EvalTask:
         """
         res, answers = [], []
         quiz = self.dataset.load()
+        if limit:
+            quiz = quiz[:limit]
         for i, doc in tqdm(enumerate(quiz), total=len(quiz)):
             real_prompt = self.prompt.load(**doc)
             try:
