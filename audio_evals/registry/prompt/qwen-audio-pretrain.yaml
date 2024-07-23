@@ -11,34 +11,34 @@ qwen-audio-en:
 qwen-audio-en2zh:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|transcribe|><|zh|><|notimestamps|><|itn|>"
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|translate|><|zh|><|notimestamps|><|itn|>"
 
 qwen-audio-en2de:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|transcribe|><|de|><|notimestamps|><|itn|>"
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|translate|><|de|><|notimestamps|><|itn|>"
 
 qwen-audio-de2en:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|de|><|transcribe|><|en|><|notimestamps|><|itn|>"
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|de|><|translate|><|en|><|notimestamps|><|itn|>"
 
 qwen-audio-zh2en:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|zh|><|transcribe|><|en|><|notimestamps|><|itn|>"
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|zh|><|translate|><|en|><|notimestamps|><|itn|>"
 
 qwen-audio-es2en:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|es|><|transcribe|><|en|><|notimestamps|><|itn|>"
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|es|><|translate|><|en|><|notimestamps|><|itn|>"
 
 qwen-audio-fr2en:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|fr|><|transcribe|><|en|><|notimestamps|><|itn|>"
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|fr|><|translate|><|en|><|notimestamps|><|itn|>"
 
 qwen-audio-it2en:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|it|><|transcribe|><|en|><|notimestamps|><|itn|>"
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|it|><|translate|><|en|><|notimestamps|><|itn|>"
