@@ -78,12 +78,12 @@ class BLEU(AggPolicy):
             self.lang = "ja-mecab"
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
-        predl, refl = [str(item['pred']) for item in score_detail], [str(item) for item in score_detail]
+        predl, refl = [str(item['pred']) for item in score_detail], [str(item['ref']) for item in score_detail]
 
         pred, ref = [], []
         for p, r in zip(predl, refl):
             if r:
                 pred.append(p)
-                ref.append(([r]))
-        res = sacrebleu.corpus_bleu(pred, ref, tokenize=self.lang)
+                ref.append(r)
+        res = sacrebleu.corpus_bleu(pred, [ref], tokenize=self.lang)
         return {'bleu': res.score}
