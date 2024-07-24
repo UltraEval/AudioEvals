@@ -5,4 +5,5 @@ aiohttp
 pyyaml
 pytest
 jiwer
-sacrebleu
+sacrebleu==1.5.1
+editdistance

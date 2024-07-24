@@ -42,7 +42,7 @@ multi-libri:
           - type: text
             value: "output the content with format {\"content\": \"\"}"
 
-convost2-en-zh:
+covost2-en-zh:
   class: audio_evals.prompt.base.Prompt
   args:
     template:

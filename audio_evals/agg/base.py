@@ -5,6 +5,8 @@ import pandas as pd
 import sacrebleu
 from jiwer import wer, cer
 
+from audio_evals.lib.wer import compute_wer
+
 
 class AggPolicy(ABC):
     def __init__(self, need_score_col: List[str] = None):
@@ -33,6 +35,21 @@ class WER(AggPolicy):
         if self.ignore_case:
             predl, refl = [item.lower() for item in predl], [item.lower() for item in refl]
         return {'wer': wer(predl, refl)}
+
+
+class PracticeWER(AggPolicy):
+    def __init__(self, need_score_col: List[str] = None, lang: str = '13a'):
+        super().__init__(need_score_col)
+        self.lang = '13a'
+        if lang == 'zh':
+            self.lang = 'zh'
+        elif lang == "ja":
+            self.lang = "ja-mecab"
+
+    def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
+        predl, refl = [str(item['pred']) for item in score_detail], [str(item['ref']) for item in score_detail]
+        predl, refl = [item.lower() for item in predl], [item.lower() for item in refl]
+        return {'wer': compute_wer(predl, refl, self.lang)}
 
 
 class CER(AggPolicy):

@@ -19,6 +19,16 @@ wer-ignore-case:
   args:
     ignore_case: true
 
+wer-zh:
+  class: audio_evals.agg.base.PracticeWER
+  args:
+    lang: zh
+
+
+wer-practice:
+  class: audio_evals.agg.base.PracticeWER
+  args: {}
+
 cer:
   class: audio_evals.agg.base.CER
   args: {}
