@@ -18,6 +18,26 @@ qwen-audio-en2de:
   args:
     template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|translate|><|de|><|notimestamps|><|itn|>"
 
+qwen-audio-en2ar:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|translate|><|ar|><|notimestamps|><|itn|>"
+
+qwen-audio-en2ca:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|translate|><|ca|><|notimestamps|><|itn|>"
+
+qwen-audio-en2cy:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|translate|><|cy|><|notimestamps|><|itn|>"
+
+qwen-audio-en2et:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|translate|><|cy|><|notimestamps|><|itn|>"
+
 qwen-audio-de2en:
   class: audio_evals.prompt.base.Prompt
   args:
