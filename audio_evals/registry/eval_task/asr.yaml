@@ -5,7 +5,7 @@ multi-libri-asr:
     prompt: multi-libri
     model: qwen-audio
     evaluator: wer
-    agg: mean
+    agg: wer
 
 alei_asr:
   class: audio_evals.base.EvalTaskCfg

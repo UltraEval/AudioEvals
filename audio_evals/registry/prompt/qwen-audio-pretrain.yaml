@@ -8,6 +8,41 @@ qwen-audio-en:
   args:
     template: "<audio>{{WavPath}}</audio><|startoftranscript|><|en|><|transcribe|><|en|><|notimestamps|><|wo_itn|>"
 
+qwen-audio-de:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|de|><|transcribe|><|de|><|notimestamps|><|wo_itn|>"
+
+qwen-audio-fr:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|fr|><|transcribe|><|fr|><|notimestamps|><|wo_itn|>"
+
+qwen-audio-nl:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|nl|><|transcribe|><|nl|><|notimestamps|><|wo_itn|>"
+
+qwen-audio-it:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|it|><|transcribe|><|it|><|notimestamps|><|wo_itn|>"
+
+qwen-audio-pl:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|pl|><|transcribe|><|pl|><|notimestamps|><|wo_itn|>"
+
+qwen-audio-pt:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|pt|><|transcribe|><|pt|><|notimestamps|><|wo_itn|>"
+
+qwen-audio-es:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|es|><|transcribe|><|es|><|notimestamps|><|wo_itn|>"
+
 qwen-audio-en2zh:
   class: audio_evals.prompt.base.Prompt
   args:
