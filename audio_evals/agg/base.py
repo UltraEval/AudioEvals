@@ -15,14 +15,17 @@ class AggPolicy(ABC):
             self.need_score_col = []
 
     @abstractmethod
-    def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
+    def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, any]:
         raise NotImplementedError()
 
-    def __call__(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
+    def __call__(self, score_detail: List[Dict[str, any]]) -> Dict[str, any]:
         if len(score_detail) > 0:
             for col in self.need_score_col:
                 assert col in score_detail[0], ValueError(f'not found {col} score')
-        return self._agg(score_detail)
+        try:
+            return self._agg(score_detail)
+        except Exception as e:
+            return {'error': str(e)}
 
 
 class WER(AggPolicy):
