@@ -12,9 +12,10 @@ mean:
 
 wer:
   class: audio_evals.agg.base.WER
-  args: {}
+  args:
+    ignore_case: true
 
-wer-ignore-case:
+wer-sense-case:
   class: audio_evals.agg.base.WER
   args:
     ignore_case: true

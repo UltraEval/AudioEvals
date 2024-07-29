@@ -37,7 +37,7 @@ class WER(AggPolicy):
         predl, refl = [str(item['pred']) for item in score_detail], [str(item['ref']) for item in score_detail]
         if self.ignore_case:
             predl, refl = [item.lower() for item in predl], [item.lower() for item in refl]
-        return {'wer': wer(predl, refl)}
+        return {'wer': wer(refl, predl)}
 
 
 class PracticeWER(AggPolicy):
