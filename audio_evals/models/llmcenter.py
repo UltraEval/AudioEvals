@@ -83,7 +83,7 @@ class LlmCenterModel(APIModel):
         else:
             raise RuntimeError(f"请求失败，状态码: {response.status_code}, {response.text}")
 
-        if msg_data["code"] in {102502, 102503}:
+        if msg_data["code"] in {102503}:
             raise EarlyStop(f"### 请求失败不用重试 msg_data: {msg_data}")
 
         assert 0 == msg_data["code"], msg_data

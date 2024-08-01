@@ -14,3 +14,20 @@ WenetSpeech-test-meeting:
     f_name: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_meeting.jsonl
     ref_col: text
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_meeting/
+
+
+WenetSpeech-test-net-local:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: KeSpeech
+    f_name: /Users/a1/project/AudioEvals/raw_data/WenetSpeech/test_net.jsonl
+    ref_col: text
+    file_path_prefix: /Users/a1/project/AudioEvals/raw_data/WenetSpeech/test_net/
+
+WenetSpeech-test-net:
+  class: audio_evals.datasets.dataset.RelativeASR
+  args:
+    default_task: KeSpeech
+    f_name: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_net.jsonl
+    ref_col: text
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_net/

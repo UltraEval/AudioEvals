@@ -7,3 +7,4 @@ pytest
 jiwer
 sacrebleu==1.5.1
 editdistance
+scikit-learn
