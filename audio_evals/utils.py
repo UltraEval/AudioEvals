@@ -49,6 +49,7 @@ MIME_TYPE_MAP = {
     ".flac": "audio/flac",
     ".aac": "audio/aac",
     ".m4a": "audio/mp4",
+    ".opus": "audio/opus",
     # 可以根据需要添加更多文件格式的支持
 }
 
