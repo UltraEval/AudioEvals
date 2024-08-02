@@ -4,7 +4,7 @@ from typing import Dict, List
 import pandas as pd
 import sacrebleu
 from jiwer import wer, cer
-
+from sklearn.metrics import accuracy_score
 from audio_evals.lib.wer import compute_wer
 
 
@@ -55,6 +55,13 @@ class PracticeWER(AggPolicy):
         return {'wer': compute_wer(predl, refl, self.lang)}
 
 
+class ACC(AggPolicy):
+
+    def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
+        predl, refl = [str(item['pred']) for item in score_detail], [str(item['ref']) for item in score_detail]
+        return {'acc(%)': accuracy_score(predl, refl)*100}
+
+
 class CER(AggPolicy):
     def __init__(self, need_score_col: List[str] = None, ignore_case: bool = False):
         super().__init__(need_score_col)
@@ -71,21 +78,6 @@ class Dump(AggPolicy):
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
         return {}
-
-
-class ACC(AggPolicy):
-
-    def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
-        if len(score_detail) == 0:
-            return {'acc': 0}
-        df = pd.DataFrame(score_detail)
-        res = {}
-        for item in df.columns:
-            try:
-                res[item] = df[item].mean()
-            except Exception:
-                pass
-        return res
 
 
 class BLEU(AggPolicy):

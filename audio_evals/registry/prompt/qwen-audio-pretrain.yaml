@@ -97,3 +97,8 @@ qwen-audio-it2en:
   class: audio_evals.prompt.base.Prompt
   args:
     template: "<audio>{{WavPath}}</audio><|startoftranscript|><|it|><|translate|><|en|><|notimestamps|><|itn|>"
+
+qwen-audio-aqa:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startofanalysis|><|en|><|question|>{{QuestionText}}<|answer|>"
