@@ -37,7 +37,7 @@ class WER(AggPolicy):
         predl, refl = [str(item['pred']) for item in score_detail], [str(item['ref']) for item in score_detail]
         if self.ignore_case:
             predl, refl = [item.lower() for item in predl], [item.lower() for item in refl]
-        return {'wer': wer(refl, predl)}
+        return {'wer(%)': wer(refl, predl)*100}
 
 
 class PracticeWER(AggPolicy):
@@ -52,14 +52,14 @@ class PracticeWER(AggPolicy):
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
         predl, refl = [str(item['pred']) for item in score_detail], [str(item['ref']) for item in score_detail]
         predl, refl = [item.lower() for item in predl], [item.lower() for item in refl]
-        return {'wer': compute_wer(predl, refl, self.lang)}
+        return {'wer(%)': compute_wer(predl, refl, self.lang)*100}
 
 
 class ACC(AggPolicy):
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
         predl, refl = [str(item['pred']) for item in score_detail], [str(item['ref']) for item in score_detail]
-        return {'acc(%)': accuracy_score(predl, refl)*100}
+        return {'acc(%)': accuracy_score(refl, predl)*100}
 
 
 class CER(AggPolicy):
