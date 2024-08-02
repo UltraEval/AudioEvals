@@ -10,6 +10,6 @@ clotho-aqa:
   class: audio_evals.datasets.dataset.RelativeASR
   args:
     default_task: aqa
-    f_name: /user/tc_agi/AudioEvals/ClothoAQA/test.jsonl
+    f_name: /mnt/data/user/tc_agi/AudioEvals/ClothoAQA/test.jsonl
     ref_col: answer
-    file_path_prefix: /user/tc_agi/AudioEvals/ClothoAQA/audio_files/
+    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/ClothoAQA/audio_files/
