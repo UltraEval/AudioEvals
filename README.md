@@ -22,13 +22,14 @@ pip install -r requirements.txt
 
 ## run
 ```bash
-
+export PYTHONPATH=$PWD:$PYTHONPATH
+mkdir log/
 # eval gemini model only when you are in USA
-export GOOGLE_API_KEY = $your-key
+export GOOGLE_API_KEY=$your-key
 python audio_evals/main.py --dataset KeSpeech-sample --model gemini-pro
 
 # eval qwen-audio api model
-export DASHSCOPE_API_KEY = $your-key
+export DASHSCOPE_API_KEY=$your-key
 python audio_evals/main.py --dataset KeSpeech-sample --model qwen-audio 
 
 # eval qwen2-audio  offline model in local
