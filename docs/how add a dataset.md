@@ -3,7 +3,7 @@
 
 In practice, you may need eval your custom audio dataset.
 
-before this, you need now how launch a custom eval task: [docs/how launch a custom eval task?.md](how%20launch%20a%20custom%20eval%20task%3F.md)
+before this, you need now how launch a custom eval task: [how launch a custom eval task.md](how%20launch%20a%20custom%20eval%20task.md)
 
 here are steps:
 
