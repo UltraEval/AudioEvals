@@ -5,8 +5,7 @@ from typing import List, Dict, Generator, Any
 
 
 class Dataset(ABC):
-    def __init__(self, f_name: str, default_task: str, ref_col: str):
-        self.f_name = f_name
+    def __init__(self, default_task: str, ref_col: str):
         self.task_name = default_task
         self.ref_col = ref_col
 
@@ -15,14 +14,17 @@ class Dataset(ABC):
         raise NotImplementedError()
 
 
-class ASR(Dataset):
+class JsonlFile(Dataset):
+    def __init__(self, f_name: str, default_task: str, ref_col: str):
+        super().__init__(default_task, ref_col)
+        self.f_name = f_name
 
     def load(self) -> List[Dict[str, any]]:
         with open(self.f_name) as f:
             return [json.loads(line) for line in f]
 
 
-class RelativeASR(Dataset):
+class RelativePath(JsonlFile):
     def __init__(self, f_name: str, default_task: str, ref_col: str, file_path_prefix: str):
         super().__init__(f_name, default_task, ref_col)
         if not file_path_prefix.endswith('/'):

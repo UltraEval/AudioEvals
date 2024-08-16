@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 from audio_evals.agg.base import AggPolicy
 from audio_evals.base import ScoreUnit
-from audio_evals.datasets.dataset import Dataset
+from audio_evals.dataset.dataset import Dataset
 from audio_evals.evaluator.base import Evaluator
 from audio_evals.models.model import Model
 from audio_evals.process.base import Process

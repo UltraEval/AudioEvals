@@ -1,5 +1,6 @@
 import argparse
 import logging
+import os
 from datetime import datetime
 
 from audio_evals.eval_task import EvalTask
@@ -32,11 +33,12 @@ def main():
 
     logging.basicConfig(level=logging.DEBUG if args.debug_mode else logging.INFO,
                         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                        handlers=[logging.FileHandler(f'app-{time_id}.log'), logging.StreamHandler()])
+                        handlers=[logging.FileHandler(f'log/app-{time_id}.log'), logging.StreamHandler()])
     logger = logging.getLogger(__name__)
 
     if not args.save:
-        args.save = f'log/{time_id}-{args.model}-{args.dataset}.jsonl'
+        os.makedirs('res/', exist_ok=True)
+        args.save = f'res/{time_id}-{args.model}-{args.dataset}.jsonl'
 
     if args.registry_path:
         paths = args.registry_path.split()

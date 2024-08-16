@@ -1,0 +1,4 @@
+qwen2-audio-api:
+  class: audio_evals.models.ali.AliApi
+  args:
+    model_name: 'qwen2-audio-instruct'

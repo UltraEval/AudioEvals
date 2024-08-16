@@ -14,7 +14,7 @@ import yaml
 
 from audio_evals.agg.base import AggPolicy
 from audio_evals.base import EvalTaskCfg
-from audio_evals.datasets.dataset import Dataset
+from audio_evals.dataset.dataset import Dataset
 from audio_evals.evaluator.base import Evaluator
 from audio_evals.models.model import Model
 from audio_evals.process.base import Process
@@ -28,7 +28,7 @@ SPEC_RESERVED_KEYWORDS = ["key", "group", "cls"]
 
 T = TypeVar("T")
 RawRegistry = Dict[str, Any]
-DEFAULT_PATHS = [Path(__file__).parents[0].resolve() / "registry"]
+DEFAULT_PATHS = [Path(__file__).parents[1].resolve() / "registry"]
 
 
 class Registry:

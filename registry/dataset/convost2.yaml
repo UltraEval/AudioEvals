@@ -1,5 +1,5 @@
 covost2-local:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /Users/a1/project/AudioEvals/raw_data/covost2/sample.jsonl
@@ -7,7 +7,7 @@ covost2-local:
     file_path_prefix: /Users/a1/project/AudioEvals/raw_data/covost2/audio
 
 covost2-zh-en:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.zh-CN_en_test.jsonl
@@ -15,7 +15,7 @@ covost2-zh-en:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-zh:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2_en_zh
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_zh-CN_test.jsonl
@@ -23,7 +23,7 @@ covost2-en-zh:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-ar:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_ar_test.jsonl
@@ -31,7 +31,7 @@ covost2-en-ar:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-ca:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_ca_test.jsonl
@@ -39,7 +39,7 @@ covost2-en-ca:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-cy:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_cy_test.jsonl
@@ -47,7 +47,7 @@ covost2-en-cy:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-de:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_de_test.jsonl
@@ -55,7 +55,7 @@ covost2-en-de:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-et:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_et_test.jsonl
@@ -63,7 +63,7 @@ covost2-en-et:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-fa:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_fa_test.jsonl
@@ -71,7 +71,7 @@ covost2-en-fa:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-id:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_id_test.jsonl
@@ -79,7 +79,7 @@ covost2-en-id:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
   
 covost2-en-ja:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_ja_test.jsonl
@@ -88,7 +88,7 @@ covost2-en-ja:
 
 
 covost2-en-lv:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_lv_test.jsonl
@@ -96,7 +96,7 @@ covost2-en-lv:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-mn:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_mn_test.jsonl
@@ -104,7 +104,7 @@ covost2-en-mn:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-sl:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_sl_test.jsonl
@@ -112,7 +112,7 @@ covost2-en-sl:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-sv:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_sv_test.jsonl
@@ -120,7 +120,7 @@ covost2-en-sv:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-ta:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_ta_test.jsonl
@@ -128,7 +128,7 @@ covost2-en-ta:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
 
 covost2-en-tr:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: covost2
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_tr_test.jsonl

@@ -1,5 +1,5 @@
 WenetSpeech-test-meeting-local:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: KeSpeech
     f_name: /Users/a1/project/AudioEvals/raw_data/WenetSpeech/test_meeting.jsonl
@@ -8,7 +8,7 @@ WenetSpeech-test-meeting-local:
 
 
 WenetSpeech-test-meeting:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: KeSpeech
     f_name: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_meeting.jsonl
@@ -16,8 +16,17 @@ WenetSpeech-test-meeting:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_meeting/
 
 
+WenetSpeech-test-meeting-hf:
+  class: audio_evals.dataset.huggingface.Huggingface
+  args:
+    name: TwinkStart/test_meeting
+    default_task: KeSpeech
+    ref_col: text
+    split: test
+
+
 WenetSpeech-test-net-local:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: KeSpeech
     f_name: /Users/a1/project/AudioEvals/raw_data/WenetSpeech/test_net.jsonl
@@ -25,7 +34,7 @@ WenetSpeech-test-net-local:
     file_path_prefix: /Users/a1/project/AudioEvals/raw_data/WenetSpeech/test_net/
 
 WenetSpeech-test-net:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: KeSpeech
     f_name: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_net.jsonl

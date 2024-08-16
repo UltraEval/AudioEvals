@@ -22,16 +22,15 @@ class Model(ABC):
     def inference(self, prompt: PromptStruct, **kwargs) -> str:
         if isinstance(prompt, list) and not self.is_chat:
             raise ValueError('struct input not match pre-train model')
-
+        if isinstance(prompt, str) and self.is_chat:
+            prompt = [{'role': 'user', 'contents': [{'type': 'text', 'value': prompt}]}]
         sample_params = deepcopy(self.sample_params)
         sample_params.update(kwargs)
         return self._inference(prompt, **sample_params)
 
 
-class APIModel(Model):
+class APIModel(Model, ABC):
 
-    @retry(max_retries=3, default='')
-    @abstractmethod
-    def _inference(self, prompt: PromptStruct, **kwargs) -> str:
-        raise NotImplementedError()
-
+    @retry(max_retries=3)
+    def inference(self, prompt: PromptStruct, **kwargs) -> str:
+        return super().inference(prompt, **kwargs)

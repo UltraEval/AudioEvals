@@ -1,4 +1,4 @@
-from audio_evals.datasets.dataset import ASR
+from audio_evals.dataset.dataset import ASR
 
 
 class KeSpeech(ASR):

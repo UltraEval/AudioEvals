@@ -76,7 +76,7 @@ class LlmCenterModel(APIModel):
             "app-code": "interface_evaluation",
             "Content-Type": "application/json",
         }
-        url = "http://llm-center.ali.modelbest.cn/llm/client/conv/accessLargeModel/sync"
+        url = "http://llm-center.ali.modelbest.co/llm/client/conv/accessLargeModel/sync"
         response = requests.post(url, json=payload, headers=headers)
         if response.status_code == 200:
             msg_data = response.json()

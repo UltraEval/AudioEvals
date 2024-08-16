@@ -1,5 +1,5 @@
 clotho-aqa-local:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: aqa
     f_name: /Users/a1/project/AudioEvals/raw_data/ClothoAQA/test.jsonl
@@ -7,7 +7,7 @@ clotho-aqa-local:
     file_path_prefix: /Users/a1/project/AudioEvals/raw_data/ClothoAQA/audio_files/
 
 clotho-aqa:
-  class: audio_evals.datasets.dataset.RelativeASR
+  class: audio_evals.dataset.dataset.RelativePath
   args:
     default_task: aqa
     f_name: /mnt/data/user/tc_agi/AudioEvals/ClothoAQA/test.jsonl

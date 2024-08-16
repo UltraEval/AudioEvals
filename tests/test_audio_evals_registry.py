@@ -19,8 +19,8 @@ def test_registry_model():
 
 def test_prompt():
     prompt = registry.get_prompt('asr')
-    model = registry.get_model('qwen-audio')
-    real_prompt = prompt.load(file='/Users/a1/Downloads/语音转文字/嘉德罗斯/嘉德罗斯_12.wav')
+    model = registry.get_model('qwen-audio-offline')
+    real_prompt = prompt.load(a='/Users/a1/Downloads/语音转文字/嘉德罗斯/嘉德罗斯_12.wav')
     print(model.inference(real_prompt))
 
 
@@ -29,6 +29,12 @@ def test_evaluator():
     assert e('0', 0)['match']
     assert e(0, '0')['match']
     assert e(1, '0')['match'] == 0
+
+    e = registry.get_evaluator('cer')
+    print(e('买一张万能卡也有不少好处带着这张卡你可以进入南非的一些公园或全部的国家公园', '买一张万能卡（Wild Card）也有不少好处。带着这张卡，你可以进入南非的一些公园或全部的国家公园。'))
+
+    e = registry.get_evaluator('wer')
+    print(e('It is good', 'it is good'))
 
 
 def test_agg():
@@ -52,3 +58,5 @@ def test_task():
                  recorder=Recorder('log/KeSpeech.jsonl'))
     res = t.run()
     print(res)
+
+

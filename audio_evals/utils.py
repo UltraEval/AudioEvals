@@ -16,19 +16,21 @@ def retry(max_retries=3, default=None):
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
+            last_exception = None
             for _ in range(max_retries):
                 try:
                     return func(*args, **kwargs)
-                except EarlyStop:
+                except EarlyStop as e:
                     if default is not None:
                         return default
-                    raise
+                    raise e
                 except Exception as e:
+                    last_exception = e
                     logger.error(f"retry after: {e}")
                     time.sleep(1)  # 可选：添加延迟
             if default is not None:
                 return default
-            raise  # 抛出最后一次捕获的异常
+            raise last_exception  # 抛出最后一次捕获的异常
 
         return wrapper
 
