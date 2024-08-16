@@ -68,7 +68,7 @@ the `registry/model/` path, new a yaml file, with content:
 $name:  # the name after command: --model $name
   class: audio_evals.models.offline_model.OfflineModel
   args:
-    path: ''  # the name of model from huggingface model or the download model path download from huggingface
+    path:   # the name of model from huggingface model or the download model path download from huggingface
 
 
 ```
