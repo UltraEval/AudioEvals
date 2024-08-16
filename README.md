@@ -27,15 +27,15 @@ pip install -e .
 
 # eval gemini model only when you are in USA
 export GOOGLE_API_KEY = $your-key
-python audio_evals/main.py --dataset clotho-aqa-local --model gemini-pro
+python audio_evals/main.py --dataset KeSpeech-sample --model gemini-pro
 
 # eval qwen-audio api model
 export DASHSCOPE_API_KEY = $your-key
-python audio_evals/main.py --dataset clotho-aqa-local --model qwen-audio
+python audio_evals/main.py --dataset KeSpeech-sample --model qwen-audio 
 
 # eval qwen2-audio  offline model in local
 pip install -r requirments-offline-model.txt
-python audio_evals/main.py --dataset clotho-aqa-local --model qwen2-audio
+python audio_evals/main.py --dataset KeSpeech-sample --model qwen2-audio
 ```
 
 ## res

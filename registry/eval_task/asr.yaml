@@ -21,7 +21,8 @@ KeSpeech:
   class: audio_evals.base.EvalTaskCfg
   args:
     dataset: KeSpeech
-    prompt: KeSpeech
+    prompt: multi-libri
     model: qwen-audio
+    post_process: ['json_content']
     evaluator: cer
-    agg: mean
+    agg: wer-zh

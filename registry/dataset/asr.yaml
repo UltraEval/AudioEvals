@@ -24,7 +24,7 @@ KeSpeech:
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/KeSpeech/
 
 
-KeSpeech-hf:
+KeSpeech-sample:
   class: audio_evals.dataset.huggingface.Huggingface
   args:
     name: TwinkStart/KeSpeech
