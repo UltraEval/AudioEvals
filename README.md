@@ -50,7 +50,7 @@ after program executed, you will get the performance in console and detail resul
 
 # Usage
 
-![img.png](assets/img.png)
+![assets/img.png](assets/img.png)
 
 To run the evaluation script, use the following command:
 
