@@ -23,8 +23,6 @@ pip install -r requirements.txt
 ## run
 ```bash
 
-pip install -e .
-
 # eval gemini model only when you are in USA
 export GOOGLE_API_KEY = $your-key
 python audio_evals/main.py --dataset KeSpeech-sample --model gemini-pro
