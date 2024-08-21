@@ -9,7 +9,7 @@ class Evaluator(ABC):
         raise NotImplementedError()
 
     def __call__(self, pred, label, **kwargs) -> Dict[str, any]:
-        res = {'pred': pred, 'ref': label}
+        res = {"pred": pred, "ref": label}
         res.update(self._eval(pred, label, **kwargs))
         return res
 
@@ -28,7 +28,7 @@ class EM(Evaluator):
         elif isinstance(label, str):
             pred, label = str(pred).strip(), label.strip()
 
-        return {'match': 1 if pred == label else 0, 'pred': pred, 'label': label}
+        return {"match": 1 if pred == label else 0, "pred": pred, "label": label}
 
 
 class PrefixMatch(Evaluator):
@@ -41,4 +41,8 @@ class PrefixMatch(Evaluator):
             pred = pred.lower().strip()
             label = str(label).lower().strip()
         n = len(label)
-        return {'match': 1 if pred[:n] == label else 0, 'pred': pred[:n], 'label': label}
+        return {
+            "match": 1 if pred[:n] == label else 0,
+            "pred": pred[:n],
+            "label": label,
+        }

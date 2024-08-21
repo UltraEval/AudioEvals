@@ -4,7 +4,7 @@ from audio_evals.process.base import Process
 
 
 class QwenAudioASRExtract(Process):
-    PUNCS = '!,.?;:'
+    PUNCS = "!,.?;:"
 
     def __init__(self, lang: str):
         self.lang = lang

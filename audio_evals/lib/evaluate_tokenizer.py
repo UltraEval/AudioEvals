@@ -3,6 +3,7 @@
 # found in the LICENSE file in the root directory.
 
 import unicodedata
+
 from sacrebleu.tokenizers import TOKENIZERS
 
 
@@ -42,7 +43,9 @@ class EvaluationTokenizer(object):
     def remove_punctuation(cls, sent: str):
         """Remove punctuation based on Unicode category."""
         return cls.SPACE.join(
-            t for t in sent.split(cls.SPACE) if not all(unicodedata.category(c)[0] == "P" for c in t)
+            t
+            for t in sent.split(cls.SPACE)
+            if not all(unicodedata.category(c)[0] == "P" for c in t)
         )
 
     def tokenize(self, sent: str):
@@ -52,7 +55,9 @@ class EvaluationTokenizer(object):
             tokenized = self.remove_punctuation(tokenized)
 
         if self.character_tokenization:
-            tokenized = self.SPACE.join(list(tokenized.replace(self.SPACE, self.SPACE_ESCAPE)))
+            tokenized = self.SPACE.join(
+                list(tokenized.replace(self.SPACE, self.SPACE_ESCAPE))
+            )
 
         if self.lowercase:
             tokenized = tokenized.lower()

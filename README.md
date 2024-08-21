@@ -4,8 +4,8 @@
 AudioEvals is an open-source framework designed for the evaluation of large audio models (Audio LLMs).
 With this tool, you can easily evaluate any Audio LLM in one go.
 
-Not only do we offer a ready-to-use solution that includes a collection of 
-audio benchmarks and evaluation methodologies, but we also provide the capability for 
+Not only do we offer a ready-to-use solution that includes a collection of
+audio benchmarks and evaluation methodologies, but we also provide the capability for
 you to customize your evaluations.
 
 
@@ -30,7 +30,7 @@ python audio_evals/main.py --dataset KeSpeech-sample --model gemini-pro
 
 # eval qwen-audio api model
 export DASHSCOPE_API_KEY=$your-key
-python audio_evals/main.py --dataset KeSpeech-sample --model qwen-audio 
+python audio_evals/main.py --dataset KeSpeech-sample --model qwen-audio
 
 # eval qwen2-audio  offline model in local
 pip install -r requirments-offline-model.txt
@@ -60,20 +60,20 @@ python audio_evals/main.py --dataset <dataset_name> --model <model_name>
 Dataset Options
 The `--dataset` parameter allows you to specify which dataset to use for evaluation. The following options are available:
 
-- `clotho-aqa-local`: 
+- `clotho-aqa-local`:
 - `KeSpeech-hf`:
-- `librispeech-test-clean`: 
-- `librispeech-dev-clean`: 
-- `librispeech-test-other`: 
-- `librispeech-dev-other`: 
-- `mls_dutch`: 
-- `mls_french`: 
+- `librispeech-test-clean`:
+- `librispeech-dev-clean`:
+- `librispeech-test-other`:
+- `librispeech-dev-other`:
+- `mls_dutch`:
+- `mls_french`:
 - `mls_german`:
 - `mls_italian`:
 - `mls_polish`:
 - `mls_portuguese`:
 - `mls_spanish`:
-- `fleurs-zh`: 
+- `fleurs-zh`:
 - `covost2-en-zh`:
 - `covost2-en-ar`:
 - `WenetSpeech-test-meeting`:
@@ -109,4 +109,3 @@ If you have questions, suggestions, or feature requests regarding AudioEvals, pl
 
 
 # Citation
-

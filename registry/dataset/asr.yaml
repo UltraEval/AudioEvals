@@ -31,4 +31,3 @@ KeSpeech-sample:
     split: sample
     default_task: KeSpeech
     ref_col: Text
-

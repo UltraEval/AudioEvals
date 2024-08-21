@@ -10,5 +10,5 @@ class Recorder:
         os.makedirs(directory, exist_ok=True)
 
     def add(self, data: typing.Dict[str, typing.Any]):
-        with open(self.name, 'a+') as f:
-            f.write(json.dumps(data, ensure_ascii=False)+'\n')
+        with open(self.name, "a+") as f:
+            f.write(json.dumps(data, ensure_ascii=False) + "\n")

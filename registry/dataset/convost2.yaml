@@ -77,7 +77,7 @@ covost2-en-id:
     f_name: /mnt/data/user/tc_agi/AudioEvals/covost2/covost_v2.en_id_test.jsonl
     ref_col: text
     file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/covost2/audio/
-  
+
 covost2-en-ja:
   class: audio_evals.dataset.dataset.RelativePath
   args:

@@ -1,7 +1,7 @@
 import json
 import os.path
 from abc import ABC, abstractmethod
-from typing import List, Dict, Generator, Any
+from typing import Any, Dict, Generator, List
 
 
 class Dataset(ABC):
@@ -25,10 +25,12 @@ class JsonlFile(Dataset):
 
 
 class RelativePath(JsonlFile):
-    def __init__(self, f_name: str, default_task: str, ref_col: str, file_path_prefix: str):
+    def __init__(
+        self, f_name: str, default_task: str, ref_col: str, file_path_prefix: str
+    ):
         super().__init__(f_name, default_task, ref_col)
-        if not file_path_prefix.endswith('/'):
-            file_path_prefix += '/'
+        if not file_path_prefix.endswith("/"):
+            file_path_prefix += "/"
         self.file_path = file_path_prefix
 
     def load(self) -> List[Dict[str, any]]:

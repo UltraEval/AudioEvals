@@ -1,4 +1,4 @@
-from jiwer import wer, cer
+from jiwer import cer, wer
 
 from audio_evals.evaluator.base import Evaluator
 
@@ -11,7 +11,7 @@ class WER(Evaluator):
         pred, label = str(pred), str(label)
         if self.ignore_case:
             pred, label = pred.lower(), label.lower()
-        return {'match': wer(label, pred)}
+        return {"match": wer(label, pred)}
 
 
 class CER(Evaluator):
@@ -22,4 +22,4 @@ class CER(Evaluator):
         pred, label = str(pred), str(label)
         if self.ignore_case:
             pred, label = pred.lower(), label.lower()
-        return {'match': cer(label, pred)}
+        return {"match": cer(label, pred)}

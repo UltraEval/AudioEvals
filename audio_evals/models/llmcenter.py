@@ -5,14 +5,16 @@ from typing import Dict
 import requests
 
 from audio_evals.base import EarlyStop
-from audio_evals.models.model import PromptStruct, APIModel
-from audio_evals.utils import retry, convbase64
+from audio_evals.models.model import APIModel, PromptStruct
+from audio_evals.utils import convbase64, retry
 
 
 class LlmCenterModel(APIModel):
     app_code = os.environ.get("LLMCenterAppCode", "interface_evaluation")
-    user_token = os.environ.get("LLMCenterUserToken", "bq4Qtvcch1vBDgpAJXvDhTmd8ra_fcKHVVx8ehYN7VY")
-    access_token = ''
+    user_token = os.environ.get(
+        "LLMCenterUserToken", "bq4Qtvcch1vBDgpAJXvDhTmd8ra_fcKHVVx8ehYN7VY"
+    )
+    access_token = ""
     timeout = 3600 * 24 * 7
     exp_time = 0
 
@@ -43,24 +45,32 @@ class LlmCenterModel(APIModel):
 
     def _inference(self, prompt: PromptStruct, **kwargs) -> str:
         if isinstance(prompt, str):
-            prompt = [{'role': 'USER', 'contents': [{'type': 'TEXT', 'pairs': prompt}]}]  # the model must be chat type
+            prompt = [
+                {"role": "USER", "contents": [{"type": "TEXT", "pairs": prompt}]}
+            ]  # the model must be chat type
         else:
             prompt = [
                 {
-                    'role': item['role'].upper(),
-                    'contents': [
-                        {'type': 'TEXT', 'pairs': item['content']}
-                        if 'content' in item else
-                        {'type': detail['type'].upper(), 'pairs': detail['value']}
-                        for detail in item['contents']
-                    ]
+                    "role": item["role"].upper(),
+                    "contents": [
+                        (
+                            {"type": "TEXT", "pairs": item["content"]}
+                            if "content" in item
+                            else {
+                                "type": detail["type"].upper(),
+                                "pairs": detail["value"],
+                            }
+                        )
+                        for detail in item["contents"]
+                    ],
                 }
-                for item in prompt]
+                for item in prompt
+            ]
 
         for turn in prompt:
-            for item in turn['contents']:
-                if item['type'] != 'TEXT':
-                    item['pairs'] = convbase64(item['pairs'])  # file
+            for item in turn["contents"]:
+                if item["type"] != "TEXT":
+                    item["pairs"] = convbase64(item["pairs"])  # file
 
         access_token = self.get_access_token()
         payload = {
@@ -81,7 +91,9 @@ class LlmCenterModel(APIModel):
         if response.status_code == 200:
             msg_data = response.json()
         else:
-            raise RuntimeError(f"请求失败，状态码: {response.status_code}, {response.text}")
+            raise RuntimeError(
+                f"请求失败，状态码: {response.status_code}, {response.text}"
+            )
 
         if msg_data["code"] in {102503}:
             raise EarlyStop(f"### 请求失败不用重试 msg_data: {msg_data}")
@@ -89,4 +101,3 @@ class LlmCenterModel(APIModel):
         assert 0 == msg_data["code"], msg_data
         content = msg_data["data"]["messages"][0]["content"]
         return content
-

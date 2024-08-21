@@ -1,13 +1,13 @@
 import base64
 import functools
 import importlib
+import logging
 import os
 import subprocess
 import time
 import typing
 
 from audio_evals.base import EarlyStop
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -72,7 +72,7 @@ def convbase64(file_path):
 
         with open(file_path, "rb") as file:
             file_content = file.read()
-            base64_encoded = base64.b64encode(file_content).decode('utf-8')
+            base64_encoded = base64.b64encode(file_content).decode("utf-8")
             data_uri = f"data:{mime_type};base64,{base64_encoded}"
             return data_uri
     except Exception as e:
@@ -90,4 +90,3 @@ def put_to_hdfs(local_path, remote_path):
 
     put_command = f"hdfs dfs -put {local_path} {remote_path}"
     subprocess.run(put_command.split(), env=my_env, check=True)
-

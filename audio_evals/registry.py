@@ -3,12 +3,24 @@ Functions to handle registration of evals. To add a new eval to the registry,
 add an entry in one of the YAML files in the `../registry` dir.
 By convention, every eval name should start with {base_eval}.{split}.
 """
+
 import difflib
 import functools
 import logging
 import os
 from pathlib import Path
-from typing import Any, Generator, Iterator, Optional, Sequence, Tuple, Type, TypeVar, Union, Dict
+from typing import (
+    Any,
+    Dict,
+    Generator,
+    Iterator,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    TypeVar,
+    Union,
+)
 
 import yaml
 
@@ -35,10 +47,14 @@ class Registry:
     def __init__(self, registry_paths=None):
         if registry_paths is None:
             registry_paths = DEFAULT_PATHS
-        self._registry_paths = [Path(p) if isinstance(p, str) else p for p in registry_paths]
+        self._registry_paths = [
+            Path(p) if isinstance(p, str) else p for p in registry_paths
+        ]
 
     def add_registry_paths(self, paths: Sequence[Union[str, Path]]) -> None:
-        self._registry_paths.extend([Path(p) if isinstance(p, str) else p for p in paths])
+        self._registry_paths.extend(
+            [Path(p) if isinstance(p, str) else p for p in paths]
+        )
 
     def _dereference(
         self, name: str, d: RawRegistry, object: str, **kwargs: dict
@@ -56,17 +72,15 @@ class Registry:
 
         spec = d[name]
         if kwargs:  # specified parameters take precedence over default one
-            spec['args'].update(kwargs)
+            spec["args"].update(kwargs)
 
         try:
-            return make_object(spec['cls'], **spec['args'])
+            return make_object(spec["cls"], **spec["args"])
         except TypeError as e:
             raise TypeError(f"Error while processing {object} '{name}': {e}")
 
     def get_model(self, name: str, **kwargs) -> Optional[Model]:
-        return self._dereference(
-            name, self._model, "model", **kwargs
-        )
+        return self._dereference(name, self._model, "model", **kwargs)
 
     def get_evaluator(self, name: str, **kwargs) -> Optional[Evaluator]:
         return self._dereference(name, self._evaluator, "evaluator", **kwargs)
@@ -97,7 +111,9 @@ class Registry:
         for name, spec in d.items():
             yield name, path, spec
 
-    def _load_directory(self, path: Path) -> Generator[Tuple[str, Path, dict], None, None]:
+    def _load_directory(
+        self, path: Path
+    ) -> Generator[Tuple[str, Path, dict], None, None]:
         files = Path(path).glob("*.yaml")
         for file in files:
             yield from self._load_file(file)
@@ -122,7 +138,9 @@ class Registry:
                     f"{reserved_keyword} is a reserved keyword, but was used in {name} from {path}"
                 )
 
-    def _load_registry(self, registry_paths: Sequence[Path], resource_type: str) -> RawRegistry:
+    def _load_registry(
+        self, registry_paths: Sequence[Path], resource_type: str
+    ) -> RawRegistry:
         """Load registry from a list of regstry paths and a specific resource type
 
         Each path includes yaml files which are a dictionary of name -> spec.

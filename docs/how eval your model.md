@@ -3,7 +3,7 @@ In the QuickStart, it's easy to launch an eval task, but your model not be integ
 
 Here are steps:
 
-# model api 
+# model api
 > your model is deployed as a service
 
 ## 1. add model inference code
@@ -54,7 +54,7 @@ class MyAudioModel(OfflineModel):
         super().__init__(is_chat, sample_params)
         # TODO
         # init code
-        
+
     def _inference(self, prompt: PromptStruct, **kwargs) -> str:
         # TODO
         # inference code

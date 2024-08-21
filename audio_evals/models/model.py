@@ -21,9 +21,9 @@ class Model(ABC):
 
     def inference(self, prompt: PromptStruct, **kwargs) -> str:
         if isinstance(prompt, list) and not self.is_chat:
-            raise ValueError('struct input not match pre-train model')
+            raise ValueError("struct input not match pre-train model")
         if isinstance(prompt, str) and self.is_chat:
-            prompt = [{'role': 'user', 'contents': [{'type': 'text', 'value': prompt}]}]
+            prompt = [{"role": "user", "contents": [{"type": "text", "value": prompt}]}]
         sample_params = deepcopy(self.sample_params)
         sample_params.update(kwargs)
         return self._inference(prompt, **sample_params)

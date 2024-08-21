@@ -8,7 +8,7 @@ before this, you need now how launch a custom eval task: [how launch a custom ev
 here are steps:
 
 
-## JSON file: 
+## JSON file:
 
 ### register the dataset
 1. make sure your dataset file is `jsonl` format
@@ -17,10 +17,10 @@ here are steps:
     ```yaml
    $name:  # name after cli: --dataset $name
    class: audio_evals.dataset.dataset.JsonlFile
-   args:  
+   args:
      default_task: alei_asr  # you should specify an eval task as default, you can find valid task in  `registry/eval_task`
      f_name:  # the file name
-     ref_col:  # the reference column name in file 
+     ref_col:  # the reference column name in file
     ```
 
 after registry model, you can eval your dataset with --dataset $name, enjoy 😘
