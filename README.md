@@ -57,40 +57,55 @@ To run the evaluation script, use the following command:
 python audio_evals/main.py --dataset <dataset_name> --model <model_name>
 ```
 
-Dataset Options
+## Dataset Options
+
 The `--dataset` parameter allows you to specify which dataset to use for evaluation. The following options are available:
 
-- `clotho-aqa-local`:
-- `KeSpeech-hf`:
-- `librispeech-test-clean`:
-- `librispeech-dev-clean`:
-- `librispeech-test-other`:
-- `librispeech-dev-other`:
-- `mls_dutch`:
-- `mls_french`:
-- `mls_german`:
-- `mls_italian`:
-- `mls_polish`:
-- `mls_portuguese`:
-- `mls_spanish`:
-- `fleurs-zh`:
-- `covost2-en-zh`:
-- `covost2-en-ar`:
-- `WenetSpeech-test-meeting`:
-- `WenetSpeech-test-net`:
+- `KeSpeech`
+- `librispeech-test-clean`
+- `librispeech-dev-clean`
+- `librispeech-test-other`
+- `librispeech-dev-other`
+- `mls_dutch`
+- `mls_french`
+- `mls_german`
+- `mls_italian`
+- `mls_polish`
+- `mls_portuguese`
+- `mls_spanish`
+- `fleurs-zh`
+- `covost2-en-ar`
+- `covost2-en-ca`
+- `covost2-en-cy`
+- `covost2-en-de`
+- `covost2-en-et`
+- `covost2-en-fa`
+- `covost2-en-id`
+- `covost2-en-ja`
+- `covost2-en-lv`
+- `covost2-en-mn`
+- `covost2-en-sl`
+- `covost2-en-sv`
+- `covost2-en-ta`
+- `covost2-en-tr`
+- `covost2-en-zh`
+- `covost2-zh-en`
+- `WenetSpeech-test-meeting`
+- `WenetSpeech-test-net`
+
+### support dataset detail
+| <dataset_name> | name                     | domain                            | metric |
+|--------------|--------------------------|-----------------------------------|--------|
+| clotho-aqa   | ClothoAQA                | QAQ(AudioQA)                      | acc    |
+| mls-*        | multilingual_librispeech | ASR(Automatic Speech Recognition) | wer    |
+| KeSpeech     | KeSpeech | ASR | cer    |
+| librispeech-* | librispeech              | ASR                               | wer    |
+| fleurs-*     | FLEURS                   | ASR                               | wer    |
+| aisheel1     | AISHELL-1                | ASR                               | wer    |
+| WenetSpeech-* | WenetSpeech              | ASR                               | wer    |
+| covost2-*    | covost2                  | STT(Speech Text Translation)      | BLEU   |
 
 eval your dataset: [docs/how add a dataset.md](docs%2Fhow%20add%20a%20dataset.md)
-
-## dataset detail
-| <dataset_name> | name                     | domain                            | metric |
-|----------------|--------------------------|-----------------------------------|--------|
-| clotho-aqa     | ClothoAQA                | QAQ(AudioQA)                      | acc    |
-| KeSpeech-*     | multilingual_librispeech | ASR(Automatic Speech Recognition) | wer    |
-| librispeech-*  | librispeech              | ASR                               | wer    |
-| fleurs-*       | FLEURS                   | ASR                               | wer    |
-|                | AISHELL-1                | ASR                               | wer    |
-| WenetSpeech-*  | WenetSpeech              | ASR                               | wer    |
-| covost2-*      | covost2                  | STT(Speech Text Translation)      | BLEU   |
 
 
 ### Model Options
@@ -98,9 +113,9 @@ eval your dataset: [docs/how add a dataset.md](docs%2Fhow%20add%20a%20dataset.md
 The `--model` parameter allows you to specify which model to use for evaluation. The following options are available:
 
 - `qwen2-audio`: Use the Qwen2 Audio model.
-- `gemini-1.5-pro`: Use the Gemini 1.5 Pro model.
+- `gemini-pro`: Use the Gemini 1.5 Pro model.
 - `gemini-1.5-flash`: Use the Gemini 1.5 Flash model.
-- `qwen2-audio-api`: Use the Qwen2 Audio API model.
+- `qwen-audio`: Use the qwen2-audio-instruct Audio API model.
 
 eval your model: [docs/how eval your model.md](docs%2Fhow%20eval%20your%20model.md)
 
