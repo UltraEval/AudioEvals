@@ -1,10 +1,10 @@
-covost2-local:
-  class: audio_evals.dataset.dataset.RelativePath
+covost2-sample:
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
     default_task: covost2
-    f_name: /Users/a1/project/AudioEvals/raw_data/covost2/sample.jsonl
-    ref_col: text
-    file_path_prefix: /Users/a1/project/AudioEvals/raw_data/covost2/audio
+    name: TwinkStart/covost2
+    split: sample
+    ref_col: answer
 
 covost2-zh-en:
   class: audio_evals.dataset.dataset.RelativePath

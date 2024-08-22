@@ -7,57 +7,57 @@ multi-lib-mls_dutch-local:
     file_path_prefix: /Users/a1/project/AudioEvals/raw_data/facebook_multilingual_librispeech/
 
 mls_dutch:
-  class: audio_evals.dataset.dataset.RelativePath
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
-    default_task: multi-libri-asr
-    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_dutch/output.jsonl
+    default_task: asr
+    name: TwinkStart/facebook_multilingual_librispeech
+    split: mls_dutch
     ref_col: Text
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
 
 mls_french:
-  class: audio_evals.dataset.dataset.RelativePath
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
-    default_task: multi-libri-asr
-    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_french/output.jsonl
+    default_task: asr
+    name: TwinkStart/facebook_multilingual_librispeech
+    split: mls_french
     ref_col: Text
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
 
 mls_german:
-  class: audio_evals.dataset.dataset.RelativePath
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
-    default_task: multi-libri-asr
-    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_german/output.jsonl
+    default_task: asr
+    name: TwinkStart/facebook_multilingual_librispeech
+    split: mls_german
     ref_col: Text
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
 
 mls_italian:
-  class: audio_evals.dataset.dataset.RelativePath
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
-    default_task: multi-libri-asr
-    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_italian/output.jsonl
+    default_task: asr
+    name: TwinkStart/facebook_multilingual_librispeech
+    split: mls_italian
     ref_col: Text
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
 
 mls_polish:
-  class: audio_evals.dataset.dataset.RelativePath
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
-    default_task: multi-libri-asr
-    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_polish/output.jsonl
+    default_task: asr
+    name: TwinkStart/facebook_multilingual_librispeech
+    split: mls_polish
     ref_col: Text
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
 
 mls_portuguese:
-  class: audio_evals.dataset.dataset.RelativePath
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
-    default_task: multi-libri-asr
-    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_portuguese/output.jsonl
+    default_task: asr
+    name: TwinkStart/facebook_multilingual_librispeech
+    split: mls_portuguese
     ref_col: Text
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/
 
 mls_spanish:
-  class: audio_evals.dataset.dataset.RelativePath
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
-    default_task: multi-libri-asr
-    f_name: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/mls_spanish/output.jsonl
+    default_task: asr
+    name: TwinkStart/facebook_multilingual_librispeech
+    split: mls_spanish
     ref_col: Text
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/facebook_multilingual_librispeech/

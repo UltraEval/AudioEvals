@@ -12,12 +12,12 @@ prefix-match:
 
 wer:
   class: audio_evals.evaluator.wer.WER
-  args: {}
-
-wer-ignore-case:
-  class: audio_evals.evaluator.wer.WER
   args:
     ignore_case: true
+
+wer-sensitive-case:
+  class: audio_evals.evaluator.wer.WER
+  args: {}
 
 cer:
   class: audio_evals.evaluator.wer.CER

@@ -25,7 +25,6 @@ wer-zh:
   args:
     lang: zh
 
-
 wer-practice:
   class: audio_evals.agg.base.PracticeWER
   args: {}

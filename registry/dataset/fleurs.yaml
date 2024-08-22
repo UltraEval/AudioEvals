@@ -1,7 +1,8 @@
 fleurs-zh:
-  class: audio_evals.dataset.dataset.RelativePath
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
-    default_task: KeSpeech
-    f_name: /mnt/data/user/tc_agi/AudioEvals/fleurs/output.jsonl
+    default_task: asr
+    name: google/fleurs
+    cfg: cmn_hans_cn
+    split: test
     ref_col: raw_transcription
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/fleurs/

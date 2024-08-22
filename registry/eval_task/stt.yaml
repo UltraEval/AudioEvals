@@ -1,8 +1,17 @@
-covost2:
+sst2zh:
   class: audio_evals.base.EvalTaskCfg
   args:
-    dataset: covost2-local
-    prompt: covost2-en-zh
+    dataset: covost2-sample
+    prompt: sst2zh
+    model: qwen-audio
+    evaluator: bleu
+    agg: bleu
+
+sst2en:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: covost2-sample
+    prompt: sst2en
     model: qwen-audio
     evaluator: bleu
     agg: bleu

@@ -34,7 +34,7 @@ python audio_evals/main.py --dataset KeSpeech-sample --model qwen-audio
 
 # eval qwen2-audio  offline model in local
 pip install -r requirments-offline-model.txt
-python audio_evals/main.py --dataset KeSpeech-sample --model qwen2-audio
+python audio_evals/main.py --dataset KeSpeech-sample --model qwen2-audio-offline
 ```
 
 ## res

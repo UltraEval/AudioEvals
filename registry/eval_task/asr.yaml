@@ -1,27 +1,18 @@
-multi-libri-asr:
-  class: audio_evals.base.EvalTaskCfg
-  args:
-    dataset: alei_asr
-    prompt: multi-libri
-    model: qwen-audio
-    evaluator: wer
-    agg: wer
-
-alei_asr:
-  class: audio_evals.base.EvalTaskCfg
-  args:
-    dataset: alei
-    prompt: alei
-    model: qwen-audio
-    evaluator: cer
-    agg: mean
-
-
-KeSpeech:
+asr:
   class: audio_evals.base.EvalTaskCfg
   args:
     dataset: KeSpeech
-    prompt: multi-libri
+    prompt: asr
+    model: qwen-audio
+    post_process: ['json_content']
+    evaluator: wer
+    agg: wer-practice
+
+asr-zh:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: KeSpeech
+    prompt: asr
     model: qwen-audio
     post_process: ['json_content']
     evaluator: cer

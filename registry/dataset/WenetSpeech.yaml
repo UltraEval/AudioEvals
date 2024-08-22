@@ -1,42 +1,15 @@
-WenetSpeech-test-meeting-local:
-  class: audio_evals.dataset.dataset.RelativePath
-  args:
-    default_task: KeSpeech
-    f_name: /Users/a1/project/AudioEvals/raw_data/WenetSpeech/test_meeting.jsonl
-    ref_col: text
-    file_path_prefix: /Users/a1/project/AudioEvals/raw_data/WenetSpeech/test_meeting
-
-
 WenetSpeech-test-meeting:
-  class: audio_evals.dataset.dataset.RelativePath
-  args:
-    default_task: KeSpeech
-    f_name: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_meeting.jsonl
-    ref_col: text
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_meeting/
-
-
-WenetSpeech-test-meeting-hf:
   class: audio_evals.dataset.huggingface.Huggingface
   args:
-    name: TwinkStart/test_meeting
-    default_task: KeSpeech
+    default_task: asr-zh
+    name: TwinkStart/WenetSpeech
+    split: test_meeting
     ref_col: text
-    split: test
-
-
-WenetSpeech-test-net-local:
-  class: audio_evals.dataset.dataset.RelativePath
-  args:
-    default_task: KeSpeech
-    f_name: /Users/a1/project/AudioEvals/raw_data/WenetSpeech/test_net.jsonl
-    ref_col: text
-    file_path_prefix: /Users/a1/project/AudioEvals/raw_data/WenetSpeech/test_net/
 
 WenetSpeech-test-net:
-  class: audio_evals.dataset.dataset.RelativePath
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
-    default_task: KeSpeech
-    f_name: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_net.jsonl
+    default_task: asr-zh
+    name: TwinkStart/WenetSpeech
+    split: test_net
     ref_col: text
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/WenetSpeech/test_net/

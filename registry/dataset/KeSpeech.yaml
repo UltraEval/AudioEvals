@@ -1,0 +1,16 @@
+KeSpeech:
+  class: audio_evals.dataset.huggingface.Huggingface
+  args:
+    name: TwinkStart/KeSpeech
+    split: test
+    default_task: KeSpeech
+    ref_col: Text
+
+
+KeSpeech-sample:
+  class: audio_evals.dataset.huggingface.Huggingface
+  args:
+    name: TwinkStart/KeSpeech
+    split: sample
+    default_task: KeSpeech
+    ref_col: Text

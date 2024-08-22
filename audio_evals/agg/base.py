@@ -59,7 +59,7 @@ class PracticeWER(AggPolicy):
             str(item["ref"]) for item in score_detail
         ]
         predl, refl = [item.lower() for item in predl], [item.lower() for item in refl]
-        return {"wer(%)": compute_wer(predl, refl, self.lang) * 100}
+        return {"wer(%)": compute_wer(refl, predl, self.lang) * 100}
 
 
 class ACC(AggPolicy):

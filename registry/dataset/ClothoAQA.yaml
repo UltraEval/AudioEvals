@@ -1,15 +1,15 @@
-clotho-aqa-local:
-  class: audio_evals.dataset.dataset.RelativePath
+clotho-aqa-sample:
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
+    name: TwinkStart/ClothoAQA
+    split: sample
     default_task: aqa
-    f_name: /Users/a1/project/AudioEvals/raw_data/ClothoAQA/test.jsonl
     ref_col: answer
-    file_path_prefix: /Users/a1/project/AudioEvals/raw_data/ClothoAQA/audio_files/
 
 clotho-aqa:
-  class: audio_evals.dataset.dataset.RelativePath
+  class: audio_evals.dataset.huggingface.Huggingface
   args:
+    name: TwinkStart/ClothoAQA
+    split: test
     default_task: aqa
-    f_name: /mnt/data/user/tc_agi/AudioEvals/ClothoAQA/test.jsonl
     ref_col: answer
-    file_path_prefix: /mnt/data/user/tc_agi/AudioEvals/ClothoAQA/audio_files/
