@@ -39,5 +39,5 @@ class AliApi(APIModel):
 
         response = MultiModalConversation.call(model=self.model, messages=messages)
         if response.status_code == HTTPStatus.OK:
-            return response.output.choices[0].message.content
+            return response.output.choices[0].message.content[0]["text"]
         raise Exception("{}: {}".format(response.code, response.message))

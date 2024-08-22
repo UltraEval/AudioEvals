@@ -1,3 +1,4 @@
+import ast
 import json
 import logging
 from abc import ABC, abstractmethod
@@ -17,5 +18,8 @@ class ContentExtract(Process):
         try:
             return json.loads(answer)["content"]
         except Exception as e:
-            logger.warning(f"process {answer} fail: {str(e)}")
+            try:
+                return ast.literal_eval(answer)["content"]
+            except Exception as e:
+                logger.warning(f"process {answer} fail: {str(e)}")
         return answer
