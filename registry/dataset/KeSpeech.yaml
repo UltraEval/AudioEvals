@@ -10,7 +10,7 @@ KeSpeech:
 KeSpeech-sample:
   class: audio_evals.dataset.huggingface.Huggingface
   args:
-    name: TwinkStart/KeSpeech
+    name: TwinkStart/sample
     split: sample
-    default_task: KeSpeech
+    default_task: asr-zh
     ref_col: Text
