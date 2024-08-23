@@ -69,7 +69,6 @@ def main():
     )
     res = t.run(args.limit)
     print(res[0])
-    put_to_hdfs(args.save, "/user/tc_agi/AudioEvals/log/")
 
 
 # Press the green button in the gutter to run the script.

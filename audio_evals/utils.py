@@ -78,15 +78,3 @@ def convbase64(file_path):
     except Exception as e:
         print(f"Error converting file to Base64: {e}")
         return None
-
-
-def put_to_hdfs(local_path, remote_path):
-    my_env = os.environ.copy()
-    my_env["HADOOP_USER_NAME"] = "tc_agi"
-    my_env["HADOOP_USER_PASSWORD"] = "IH2U3AS1D"
-
-    mk_command = f"hdfs dfs -mkdir -p {os.path.dirname(remote_path)}"
-    subprocess.run(mk_command.split(), env=my_env, check=True)
-
-    put_command = f"hdfs dfs -put {local_path} {remote_path}"
-    subprocess.run(put_command.split(), env=my_env, check=True)
