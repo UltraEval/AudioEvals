@@ -1,7 +1,7 @@
 fleurs-zh:
   class: audio_evals.dataset.huggingface.Huggingface
   args:
-    default_task: asr
+    default_task: asr-zh
     name: google/fleurs
     cfg: cmn_hans_cn
     split: test

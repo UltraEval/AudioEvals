@@ -6,7 +6,6 @@ from datetime import datetime
 from audio_evals.eval_task import EvalTask
 from audio_evals.recorder import Recorder
 from audio_evals.registry import registry
-from audio_evals.utils import put_to_hdfs
 
 
 def get_args():
