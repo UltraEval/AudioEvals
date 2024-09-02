@@ -29,7 +29,7 @@ def get_args():
 def main():
     time_id = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     args = get_args()
-
+    os.makedirs("log/", exist_ok=True)
     logging.basicConfig(
         level=logging.DEBUG if args.debug_mode else logging.INFO,
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
