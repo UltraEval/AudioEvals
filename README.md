@@ -46,6 +46,19 @@ after program executed, you will get the performance in console and detail resul
     |-- $time-$name-$dataset.jsonl
 ```
 
+# performance
+
+![assets/performance.png](assets/performance.png)
+
+
+> () is offical performance 
+
+| model      | multilingual_librispeech          | librispeech                                                                             | FLEURS | covost2                                                                                            | KeSpeech         | WenetSpeech                       | ClothoAQA | AISHELL-1 |
+|------------|-----------------------------------|-----------------------------------------------------------------------------------------|-----|----------------------------------------------------------------------------------------------------|------------------|-----------------------------------|-----------|-----------|
+| qwen-audio | mls_french 32.84 mls_german 49.07 | dev-clean 1.85(1.8);  dev-other 4.14(4.0)  test-clean   2.21(2.0), test-other 4.27(4.2) | 25 | en-zh 41.24（41.5）, zh-en 15.93（15.7）, en-de 25.13（25.1）;en-ar 0.16; en-ca 1.5, en-cy 1.2 , en-et 0.67 | 6.6 | test_meeting 11.23, test_net 9.25 | 58.86（57.9） | （1.3） |
+
+
+
 
 # Usage
 
