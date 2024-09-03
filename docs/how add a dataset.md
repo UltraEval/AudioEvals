@@ -12,7 +12,7 @@ here are steps:
 
 ### register the dataset
 1. make sure your dataset file is `jsonl` format
-2. new a file `**.yaml`
+2. new a file `**.yaml` in `registry/dataset/`
     content like :
     ```yaml
    $name:  # name after cli: --dataset $name
@@ -22,5 +22,4 @@ here are steps:
      f_name:  # the file name
      ref_col:  # the reference column name in file
     ```
-
-after registry model, you can eval your dataset with --dataset $name, enjoy 😘
+after registry dataset, you can eval your dataset with --dataset $name, enjoy 😘
