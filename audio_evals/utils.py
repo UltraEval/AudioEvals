@@ -3,7 +3,6 @@ import functools
 import importlib
 import logging
 import os
-import subprocess
 import time
 import typing
 
@@ -78,3 +77,4 @@ def convbase64(file_path):
     except Exception as e:
         print(f"Error converting file to Base64: {e}")
         return None
+

@@ -1,6 +1,7 @@
-from jiwer import cer, wer
+from jiwer import cer
 
 from audio_evals.evaluator.base import Evaluator
+from audio_evals.lib.wer import compute_wer
 
 
 class WER(Evaluator):
@@ -11,7 +12,7 @@ class WER(Evaluator):
         pred, label = str(pred), str(label)
         if self.ignore_case:
             pred, label = pred.lower(), label.lower()
-        return {"match": wer(label, pred)}
+        return {"wer%": compute_wer([label], [pred]) * 100}
 
 
 class CER(Evaluator):
@@ -22,4 +23,4 @@ class CER(Evaluator):
         pred, label = str(pred), str(label)
         if self.ignore_case:
             pred, label = pred.lower(), label.lower()
-        return {"match": cer(label, pred)}
+        return {"cer%": cer(label, pred) * 100}

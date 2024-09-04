@@ -1,0 +1,29 @@
+qwen2-audio-pretrain-aqa:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>answer the question without
+      explain
+
+      # Question: {{QuestionText}}'
+
+qwen2-audio-pretrain-asr-zh:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and recognize the speech: <|zh|>'
+
+qwen2-audio-pretrain-asr-en:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and recognize the speech: <|en|>'
+
+qwen2-audio-pretrain-sst2zh:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>translate this audio to chinese,
+      output the content with format {"content": ""}'
+
+qwen2-audio-pretrain-sst2en:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>translate this audio to english,
+      output the content with format {"content": ""}'

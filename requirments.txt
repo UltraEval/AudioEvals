@@ -8,9 +8,10 @@ jiwer
 sacrebleu==1.5.1
 editdistance
 scikit-learn
-google-generativeai
 librosa
 soundfile
 dashscope
 datasets
 pre-commit
+more_itertools
+pandas

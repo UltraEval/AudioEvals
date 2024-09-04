@@ -1,3 +1,4 @@
+import logging
 from abc import ABC, abstractmethod
 from copy import deepcopy
 from typing import Dict
@@ -6,6 +7,8 @@ from audio_evals.base import PromptStruct
 from audio_evals.utils import retry
 
 # the str type for pre-train model, the list type for chat model
+
+logger = logging.getLogger(__name__)
 
 
 class Model(ABC):
@@ -26,6 +29,7 @@ class Model(ABC):
             prompt = [{"role": "user", "contents": [{"type": "text", "value": prompt}]}]
         sample_params = deepcopy(self.sample_params)
         sample_params.update(kwargs)
+        logger.debug(f"sample_params: {sample_params}\nprompt: {prompt}")
         return self._inference(prompt, **sample_params)
 
 

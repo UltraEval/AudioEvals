@@ -1,8 +1,7 @@
-transformers>=4.37.0
+transformers
 accelerate>=0.20.3
 einops
 matplotlib
-pandas
 pillow
 scipy
 tensorboard

@@ -4,6 +4,7 @@ sst2zh:
     dataset: covost2-sample
     prompt: sst2zh
     model: qwen-audio
+    post_process: ['json_content']
     evaluator: bleu
     agg: bleu
 
@@ -13,5 +14,6 @@ sst2en:
     dataset: covost2-sample
     prompt: sst2en
     model: qwen-audio
+    post_process: ['json_content']
     evaluator: bleu
     agg: bleu
