@@ -1,4 +1,8 @@
 
+# News/Updates:
+
+2024/9/6 🎉 we support `Qwen/Qwen2-Audio-7B`, `Qwen/Qwen2-Audio-7B-Instruct` models! 
+
 # OVERVIEW
 
 AudioEvals is an open-source framework designed for the evaluation of large audio models (Audio LLMs).

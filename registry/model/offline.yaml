@@ -14,7 +14,7 @@ qwen2-audio-offline:
 qwen2-audio-chat:
    class: audio_evals.models.qwen.Qwen2audio
    args:
-     path: qwen/Qwen2-Audio-7B-Instruct
+     path: Qwen/Qwen2-Audio-7B-Instruct
      sample_params:
        do_sample: false
        max_new_tokens: 256
