@@ -2,6 +2,7 @@
 # News/Updates:
 
 2024/9/7 🎉 we support `vocalsound`, `MELD` benchmark! 
+
 2024/9/6 🎉 we support `Qwen/Qwen2-Audio-7B`, `Qwen/Qwen2-Audio-7B-Instruct` models! 
 
 # OVERVIEW
