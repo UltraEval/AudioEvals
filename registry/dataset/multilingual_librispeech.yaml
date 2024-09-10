@@ -1,11 +1,3 @@
-multi-lib-mls_dutch-local:
-  class: audio_evals.dataset.dataset.RelativePath
-  args:
-    default_task: multi-libri-asr
-    f_name: /Users/a1/project/AudioEvals/raw_data/facebook_multilingual_librispeech/mls_dutch/sample.jsonl
-    ref_col: Text
-    file_path_prefix: /Users/a1/project/AudioEvals/raw_data/facebook_multilingual_librispeech/
-
 mls_dutch:
   class: audio_evals.dataset.huggingface.Huggingface
   args:
