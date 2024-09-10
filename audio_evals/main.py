@@ -39,6 +39,7 @@ def main():
         ],
     )
     logger = logging.getLogger(__name__)
+    logger.propagate = False
 
     if not args.save:
         os.makedirs("res/", exist_ok=True)
