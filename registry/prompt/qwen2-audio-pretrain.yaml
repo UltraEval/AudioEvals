@@ -16,14 +16,23 @@ qwen2-audio-pretrain-asr-en:
   args:
     template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and recognize the speech: <|en|>'
 
-qwen2-audio-pretrain-sst2zh:
+qwen2-audio-pretrain-sst-en2zh:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>translate this audio to chinese,
-      output the content with format {"content": ""}'
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and translate the speech into Mandarin: <|en|>'
 
-qwen2-audio-pretrain-sst2en:
+qwen2-audio-pretrain-sst-zh2en:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>translate this audio to english,
-      output the content with format {"content": ""}'
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and translate the speech into English: <|zh|>'
+
+qwen2-audio-pretrain-sst-en2de:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and translate the speech into German: <|en|>'
+
+qwen2-audio-pretrain-sst-de2en:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and translate the speech into English: <|de|>'
+
