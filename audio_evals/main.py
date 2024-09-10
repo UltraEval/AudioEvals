@@ -68,6 +68,8 @@ def main():
     )
     res = t.run(args.limit)
     print(res[0])
+    with open(args.save, "r") as f:
+        print(f.read())
 
 
 # Press the green button in the gutter to run the script.
