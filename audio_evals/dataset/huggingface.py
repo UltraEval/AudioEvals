@@ -40,7 +40,14 @@ def load_audio_hf_dataset(name, cfg=None, split=""):
 
 
 class Huggingface(BaseDataset):
-    def __init__(self, name: str, default_task: str, ref_col: str, cfg: Optional[str] = None, split: str = "", ):
+    def __init__(
+        self,
+        name: str,
+        default_task: str,
+        ref_col: str,
+        cfg: Optional[str] = None,
+        split: str = "",
+    ):
         super().__init__(default_task, ref_col)
         self.name = name
         self.cfg = cfg

@@ -20,3 +20,14 @@ sst2en:
             value: "{{audio}}"
           - type: text
             value: "translate this audio to english, output the content with format {\"content\": \"\"}"
+
+sst2de:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template:
+      - role: user
+        contents:
+          - type: audio
+            value: "{{audio}}"
+          - type: text
+            value: "translate this audio to German, output the content with format {\"content\": \"\"}"

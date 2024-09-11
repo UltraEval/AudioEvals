@@ -17,3 +17,13 @@ sst2en:
     post_process: ['json_content']
     evaluator: bleu
     agg: bleu
+
+sst2de:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: covost2-en-de
+    prompt: sst2de
+    model: qwen-audio
+    post_process: ['json_content']
+    evaluator: bleu
+    agg: bleu

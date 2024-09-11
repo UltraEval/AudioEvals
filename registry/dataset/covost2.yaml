@@ -1,34 +1,34 @@
 covost2-en-ar:
   args:
-    default_task: sst2en
+    default_task: sst2ar
     name: TwinkStart/covost2
     split: en_ar
     ref_col: text
   class: audio_evals.dataset.huggingface.Huggingface
 covost2-en-ca:
   args:
-    default_task: sst2en
+    default_task: sst2ca
     name: TwinkStart/covost2
     split: en_ca
     ref_col: text
   class: audio_evals.dataset.huggingface.Huggingface
 covost2-en-cy:
   args:
-    default_task: sst2en
+    default_task: sst2cy
     name: TwinkStart/covost2
     split: en_cy
     ref_col: text
   class: audio_evals.dataset.huggingface.Huggingface
 covost2-en-de:
   args:
-    default_task: sst2en
+    default_task: sst2de
     name: TwinkStart/covost2
     split: en_de
     ref_col: text
   class: audio_evals.dataset.huggingface.Huggingface
 covost2-en-et:
   args:
-    default_task: sst2en
+    default_task: sst2et
     name: TwinkStart/covost2
     split: en_et
     ref_col: text

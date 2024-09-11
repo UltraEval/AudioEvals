@@ -1,9 +1,9 @@
 
 # News/Updates:
 
-2024/9/7 🎉 we support `vocalsound`, `MELD` benchmark! 
+2024/9/7 🎉 we support `vocalsound`, `MELD` benchmark!
 
-2024/9/6 🎉 we support `Qwen/Qwen2-Audio-7B`, `Qwen/Qwen2-Audio-7B-Instruct` models! 
+2024/9/6 🎉 we support `Qwen/Qwen2-Audio-7B`, `Qwen/Qwen2-Audio-7B-Instruct` models!
 
 # OVERVIEW
 
@@ -57,7 +57,7 @@ after program executed, you will get the performance in console and detail resul
 ![assets/performance.png](assets/performance.png)
 
 
-> () is offical performance 
+> () is offical performance
 
 | model      | multilingual_librispeech          | librispeech                                                                             | FLEURS | covost2                                                                                            | KeSpeech         | WenetSpeech                       | ClothoAQA | AISHELL-1 |
 |------------|-----------------------------------|-----------------------------------------------------------------------------------------|-----|----------------------------------------------------------------------------------------------------|------------------|-----------------------------------|-----------|-----------|

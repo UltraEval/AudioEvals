@@ -4,7 +4,7 @@ In the Quick Start section, you can initiate an evaluation task within just a fe
 
 When initiating an evaluation task, you will need to provide the following components:
 - **Dataset**: This is the data set against which the model's performance will be evaluated. It should be representative of the real-world scenarios the model is expected to handle. Build-in Config Path:  [dataset](../registry/dataset)
-- **Prompt**: The prompt serves as a converter, translating data directives into model inputs. 
+- **Prompt**: The prompt serves as a converter, translating data directives into model inputs.
  We have standardized the prompt format to facilitate prompt management, ensuring that users need not be concerned with the intricacies of the underlying model's input style. Build-in Config Path: [prompt](../registry/prompt)
 - **Model**: The model to be evaluated. Build-in Config Path: [model](../registry/model)
 - **Post-Process**: This step involves any necessary processing or transformations applied to the model's output before evaluation. This could include formatting, filtering, or normalization. Build-in Config Path: [post-process](../registry/process)
@@ -12,8 +12,8 @@ When initiating an evaluation task, you will need to provide the following compo
 - **Aggregation**:Distinct from the Evaluator in scope, this component operates at the dataset level. It aggregates the results of the evaluation across all data points, providing a comprehensive view of the model's performance. Build-in Config Path: [agg](../registry/agg)
 
 
-When evaluating a chat model, you only need to provide the dataset and the chat model. 
-You do not need to worry about details such as prompt, post-process, 
+When evaluating a chat model, you only need to provide the dataset and the chat model.
+You do not need to worry about details such as prompt, post-process,
 evaluator, etc. You can refer to the default task configuration in [eval_task/](../registry/eval_task).
 
 Example Configuration:
@@ -39,7 +39,7 @@ An output of the pretrain model also need special post process.
 
 ## eavl qwen2-audio pretrain model
 
-### registry 
+### registry
 1. registry model at [offline.yaml](../registry/model/offline.yaml)
 ```yaml
 qwen2-audio-offline:
@@ -74,7 +74,7 @@ qwen_pretrain_asr_tractor_zh:
     lang: zh
 ```
 
-### launch  
+### launch
 ```shell
 python audio_evals/main.py --dataset local-fleurs-zh --model qwen2-audio-offline --prompt qwen2-audio-pretrain-asr-zh --post_process qwen_pretrain_asr_tractor_zh
 ```

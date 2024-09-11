@@ -35,4 +35,3 @@ qwen2-audio-pretrain-sst-de2en:
   class: audio_evals.prompt.base.Prompt
   args:
     template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and translate the speech into English: <|de|>'
-

@@ -77,4 +77,3 @@ def convbase64(file_path):
     except Exception as e:
         print(f"Error converting file to Base64: {e}")
         return None
-
