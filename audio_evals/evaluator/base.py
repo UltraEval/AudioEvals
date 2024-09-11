@@ -10,7 +10,8 @@ class Evaluator(ABC):
 
     def __call__(self, pred, label, **kwargs) -> Dict[str, any]:
         res = {"pred": pred, "ref": label}
-        res.update(self._eval(pred, label, **kwargs))
+        eval_kwargs = {k: v for k, v in kwargs.items() if k not in ["pred", "label"]}
+        res.update(self._eval(pred, label, **eval_kwargs))
         return res
 
 
