@@ -5,8 +5,8 @@ sst2zh:
     prompt: sst2zh
     model: qwen-audio
     post_process: ['json_content']
-    evaluator: bleu
-    agg: bleu
+    evaluator: bleu-zh
+    agg: bleu-zh
 
 sst2en:
   class: audio_evals.base.EvalTaskCfg
