@@ -16,6 +16,16 @@ qwen2-audio-pretrain-asr-en:
   args:
     template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and recognize the speech: <|en|>'
 
+qwen2-audio-pretrain-asr-fr:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and recognize the speech: <|fr|>'
+
+qwen2-audio-pretrain-asr-yue:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and recognize the speech: <|yue|>'
+
 qwen2-audio-pretrain-sst-en2zh:
   class: audio_evals.prompt.base.Prompt
   args:
