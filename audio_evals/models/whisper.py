@@ -45,7 +45,6 @@ class WhisperModel(Model):
                 for line in content["contents"]:
                     if line["type"] == "audio":
                         audio = line["value"]
-                        break
                     elif line["type"] == "text":
                         m = re.match(
                             r"translate this audio to (.*?),",
@@ -58,7 +57,7 @@ class WhisperModel(Model):
                                 "task": "translate",
                             }
 
-        logger.info(f"the input is {audio}")
+        logger.debug(f"the input is {audio}, {kwargs}")
         pipe = pipeline(
             "automatic-speech-recognition",
             model=self.model,
@@ -67,6 +66,5 @@ class WhisperModel(Model):
             torch_dtype=self.torch_dtype,
             device=self.device,
         )
-
         result = pipe(audio, **kwargs)
         return result["text"]
