@@ -46,6 +46,21 @@ qwen2-audio-pretrain-sst-de2en:
   args:
     template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and translate the speech into English: <|de|>'
 
+qwen2-audio-pretrain-sst-es2en:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and translate the speech into English: <|es|>'
+
+qwen2-audio-pretrain-sst-fr2en:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and translate the speech into English: <|fr|>'
+
+qwen2-audio-pretrain-sst-it2en:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Detect the language and translate the speech into English: <|it|>'
+
 qwen2-audio-pretrain-emo:
   class: audio_evals.prompt.base.Prompt
   args:
