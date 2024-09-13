@@ -38,24 +38,8 @@ class WhisperModel(Model):
 
     def _inference(self, prompt: PromptStruct, **kwargs) -> str:
 
-        audio = ""
-
-        for content in prompt:
-            if content["role"] == "user":
-                for line in content["contents"]:
-                    if line["type"] == "audio":
-                        audio = line["value"]
-                    elif line["type"] == "text":
-                        m = re.match(
-                            r"translate this audio to (.*?),",
-                            line["value"],
-                            re.IGNORECASE,
-                        )
-                        if m:
-                            kwargs["generate_kwargs"] = {
-                                "language": m.group(1),
-                                "task": "translate",
-                            }
+        audio = prompt["audio"]
+        kwargs["generate_kwargs"] = prompt["generate_kwargs"]
 
         logger.debug(f"the input is {audio}, {kwargs}")
         pipe = pipeline(
