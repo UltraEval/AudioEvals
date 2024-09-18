@@ -8,10 +8,10 @@ class Evaluator(ABC):
     def _eval(self, pred, label, **kwargs) -> Dict[str, any]:
         raise NotImplementedError()
 
-    def __call__(self, pred, label, **kwargs) -> Dict[str, any]:
-        res = {"pred": pred, "ref": label}
+    def __call__(self, pred, ref, **kwargs) -> Dict[str, any]:
+        res = {"pred": pred, "ref": ref}
         eval_kwargs = {k: v for k, v in kwargs.items() if k not in ["pred", "label"]}
-        res.update(self._eval(pred, label, **eval_kwargs))
+        res.update(self._eval(pred, ref, **eval_kwargs))
         return res
 
 
