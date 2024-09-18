@@ -1,4 +1,5 @@
 import editdistance as ed
+import zhconv
 
 from audio_evals.lib.evaluate_tokenizer import EvaluationTokenizer
 from audio_evals.lib.text_normalization.basic import BasicTextNormalizer
@@ -37,13 +38,17 @@ def compute_wer(refs, hyps, language="en"):
         if language in ["zh"]:
             ref = chinese_normalizer(ref)
             pred = chinese_normalizer(pred)
+        if language in ["yue"]:
+            ref = zhconv.convert(ref, "zh-cn")
+            pred = zhconv.convert(pred, "zh-cn")
 
         ref_items = tokenizer.tokenize(ref).split()
         pred_items = tokenizer.tokenize(pred).split()
-        if language == "zh":
+
+        if language in ["zh", "yue"]:
             ref_items = [x for x in "".join(ref_items)]
             pred_items = [x for x in "".join(pred_items)]
-        if i == 0:
+        if len(refs) > 1 and i == 0:
             print(f"ref: {ref}")
             print(f"pred: {pred}")
             print(f"ref_items:\n{ref_items}\n{len(ref_items)}\n{ref_items[0]}")

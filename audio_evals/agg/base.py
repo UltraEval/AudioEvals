@@ -48,10 +48,8 @@ class WER(AggPolicy):
 class PracticeWER(AggPolicy):
     def __init__(self, need_score_col: List[str] = None, lang: str = "13a"):
         super().__init__(need_score_col)
-        self.lang = "13a"
-        if lang == "zh":
-            self.lang = "zh"
-        elif lang == "ja":
+        self.lang = lang
+        if lang == "ja":
             self.lang = "ja-mecab"
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:

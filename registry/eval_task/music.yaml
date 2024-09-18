@@ -1,0 +1,8 @@
+instrument_recognition:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: nsyth
+    prompt: instrument_recognition
+    model: qwen-audio-chat
+    evaluator: prefix-match
+    agg: acc
