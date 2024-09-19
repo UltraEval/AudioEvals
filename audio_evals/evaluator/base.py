@@ -29,7 +29,7 @@ class EM(Evaluator):
         elif isinstance(label, str):
             pred, label = str(pred).strip(), label.strip()
 
-        return {"match": 1 if pred == label else 0, "pred": pred, "label": label}
+        return {"match": 1 if pred == label else 0, "pred": pred, "ref": label}
 
 
 class PrefixMatch(Evaluator):
@@ -45,5 +45,5 @@ class PrefixMatch(Evaluator):
         return {
             "match": 1 if pred[:n] == label else 0,
             "pred": pred[:n],
-            "label": label,
+            "ref": label,
         }
