@@ -37,7 +37,7 @@ class WER(AggPolicy):
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
         predl, refl = [str(item["pred"]) for item in score_detail], [
-            str(item["ref"]) for item in score_detail
+            str(item["label"]) for item in score_detail
         ]
         if self.ignore_case:
             predl, refl = [item.lower() for item in predl], [
@@ -55,7 +55,7 @@ class PracticeWER(AggPolicy):
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
         predl, refl = [str(item["pred"]) for item in score_detail], [
-            str(item["ref"]) for item in score_detail
+            str(item["label"]) for item in score_detail
         ]
         predl, refl = [item.lower() for item in predl], [item.lower() for item in refl]
         return {"wer(%)": compute_wer(refl, predl, self.lang) * 100}
@@ -65,7 +65,7 @@ class ACC(AggPolicy):
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
         predl, refl = [str(item["pred"]) for item in score_detail], [
-            str(item["ref"]) for item in score_detail
+            str(item["label"]) for item in score_detail
         ]
         return {"acc(%)": accuracy_score(refl, predl) * 100}
 
@@ -77,7 +77,7 @@ class CER(AggPolicy):
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
         predl, refl = [str(item["pred"]) for item in score_detail], [
-            str(item["ref"]) for item in score_detail
+            str(item["label"]) for item in score_detail
         ]
         if self.ignore_case:
             predl, refl = [item.lower() for item in predl], [
@@ -103,7 +103,7 @@ class BLEU(AggPolicy):
 
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
         predl, refl = [str(item["pred"]) for item in score_detail], [
-            str(item["ref"]) for item in score_detail
+            str(item["label"]) for item in score_detail
         ]
 
         pred, ref = [], []
@@ -118,7 +118,7 @@ class BLEU(AggPolicy):
 class Coco(AggPolicy):
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
         predl, refl = [str(item["pred"]) for item in score_detail], [
-            str(item["ref"]) for item in score_detail
+            str(item["label"]) for item in score_detail
         ]
 
         pred, ref = [], []
