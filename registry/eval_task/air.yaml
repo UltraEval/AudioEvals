@@ -1,0 +1,8 @@
+single_choice:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: air-foundation
+    prompt: single_choice
+    model: qwen-audio-chat
+    evaluator: prefix-match
+    agg: acc
