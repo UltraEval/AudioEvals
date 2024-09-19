@@ -6,6 +6,7 @@ import sacrebleu
 from jiwer import cer, wer
 from sklearn.metrics import accuracy_score
 
+from audio_evals.lib.coco import compute_caption
 from audio_evals.lib.wer import compute_wer
 
 
@@ -112,3 +113,18 @@ class BLEU(AggPolicy):
                 ref.append(r)
         res = sacrebleu.corpus_bleu(pred, [ref], tokenize=self.lang)
         return {"bleu": res.score}
+
+
+class Coco(AggPolicy):
+    def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
+        predl, refl = [str(item["pred"]) for item in score_detail], [
+            str(item["ref"]) for item in score_detail
+        ]
+
+        pred, ref = [], []
+        for p, r in zip(predl, refl):
+            if r:
+                pred.append(p)
+                ref.append(r)
+        res = compute_caption(ref, pred)
+        return res

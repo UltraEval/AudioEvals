@@ -25,6 +25,17 @@ def test_wer():
         print(e(s1, s0))
 
 
+def test_coco():
+    e = registry.get_evaluator("coco")
+    for s0, s1 in [
+        (
+            "An aircraft engine is taking off",
+            "plane engine is taking off",
+        ),
+    ]:
+        print(e(s1, s0))
+
+
 def test_tmp():
     f_name = "/Users/a1/project/AudioEvals/log/2024-07-22_06-38-10-qwen-audio-pretrain-offline-librispeech-dev-clean.jsonl"
     df = pd.read_json(f_name, lines=True)

@@ -16,3 +16,4 @@ pre-commit
 more_itertools
 pandas
 zhconv
+pycocoevalcap

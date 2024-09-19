@@ -36,3 +36,7 @@ bleu-jp:
   class: audio_evals.evaluator.bleu.BLEU
   args:
     lang: jp
+
+coco:
+  class: audio_evals.evaluator.coco.Coco
+  args: {}
