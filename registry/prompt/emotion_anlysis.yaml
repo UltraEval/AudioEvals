@@ -41,3 +41,16 @@ vocal_sound_analysis:
             value: "{{WavPath}}"
           - type: text
             value: "listen the audio and judge the vocal sound, the answer must be one of [Cough,Sigh,Throat clearing,Sneeze,Laughter,Sniff], answer without explain"
+
+sound_analysis:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template:
+      - role: user
+        contents:
+          - type: audio
+            value: "{{WavPath}}"
+          - type: text
+            value: "listen the audio and judge the sound, the answer must be one of ['Speech', 'Frying', 'Dishes',
+            'Running_water', 'Blender', 'Electric_shaver_toothbrush', 'Cat',
+            'Alarm_bell_ringing', 'Dog', 'Vacuum_cleaner'], answer without explain"

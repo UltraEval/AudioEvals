@@ -24,3 +24,12 @@ sentiment_analysis:
     model: qwen-audio-chat
     evaluator: prefix-match
     agg: acc
+
+desed_sound_analysis:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: desed
+    prompt: sound_analysis
+    model: qwen-audio-chat
+    evaluator: prefix-match
+    agg: acc
