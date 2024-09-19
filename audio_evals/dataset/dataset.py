@@ -40,7 +40,7 @@ class RelativePath(JsonlFile):
                 doc = json.loads(line)
                 for k, v in doc.items():
                     temp = os.path.join(self.file_path, str(v))
-                    if os.path.exists(temp):
+                    if os.path.exists(temp) and os.path.isfile(temp):
                         doc[k] = temp
                 res.append(doc)
         return res
