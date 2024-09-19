@@ -9,6 +9,17 @@ emo_analysis:
           - type: text
             value: "listen the audio and judge the emotion of the speaker, the answer must be one of [surprise,anger,neutral,joy,sadness,fear,disgust], answer without explain"
 
+ravdess_emo_analysis:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template:
+      - role: user
+        contents:
+          - type: audio
+            value: "{{WavPath}}"
+          - type: text
+            value: "listen the audio and judge the emotion of the speaker, the answer must be one of [neutral,calm,happy,sad,angry,fearful,disgust,surprised], answer without explain"
+
 sentiment_analysis:
   class: audio_evals.prompt.base.Prompt
   args:
