@@ -34,7 +34,7 @@ class UltraVOX(Model):
                 if c["type"] == "audio":
                     audio, sr = librosa.load(c["value"], sr=16000)
                 if c["type"] == "text":
-                    turns.append({"role": role, "content": c["value"]})
+                    turns.append({"role": role, "content": c["value"] + " <|audio|>"})
         return audio, sr, turns
 
     def _inference(self, prompt: PromptStruct, **kwargs) -> str:
