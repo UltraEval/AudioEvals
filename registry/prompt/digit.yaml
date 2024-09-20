@@ -1,0 +1,10 @@
+digit:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template:
+      - role: user
+        contents:
+          - type: audio
+            value: "{{WavPath}}"
+          - type: text
+            value: "Identify which digit [0-9] is spoken in the provided audio clip, answer one of [0,9] without explain"
