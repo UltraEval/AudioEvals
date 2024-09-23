@@ -6,3 +6,12 @@ COVID-recognizer:
     model: qwen-audio-chat
     evaluator: prefix-match
     agg: acc
+
+Heartbeat-recognizer:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: clotho-aqa
+    prompt: Heartbeat-recognizer
+    model: qwen-audio-chat
+    evaluator: prefix-match
+    agg: acc
