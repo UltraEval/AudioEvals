@@ -1,3 +1,5 @@
+import logging
+
 from pycocoevalcap.bleu.bleu import Bleu
 from pycocoevalcap.meteor.meteor import Meteor
 from pycocoevalcap.rouge.rouge import Rouge
@@ -6,8 +8,13 @@ from pycocoevalcap.cider.cider import Cider
 from typing import Dict, Any, Union, List, Tuple
 from pathlib import Path
 import json
+
+from pycocoevalcap.spice.spice import Spice
 from pycocotools.coco import COCO
 from pycocoevalcap.tokenizer.ptbtokenizer import PTBTokenizer
+
+
+logger = logging.getLogger(__name__)
 
 
 def write_json(data: Union[List[Dict[str, Any]], Dict[str, Any]], path: Path) -> None:
@@ -138,17 +145,23 @@ def compute_caption(gts, res):
         (Meteor(), "METEOR"),
         (Rouge(), "ROUGE_L"),
         (Cider(), "CIDEr"),
+        (Spice(), "SPICE"),
     ]
     f_res = {}
     for scorer, method in scorers:
         print("computing %s score..." % (scorer.method()))
+        try:
+            score, scores = scorer.compute_score(gts, res)
+            if type(method) == list:
+                for sc, scs, m in zip(score, scores, method):
+                    print("%s: %0.3f" % (m, sc))
+                    f_res[m] = sc
+            else:
+                print("%s: %0.3f" % (method, score))
+                f_res[method] = score
+        except Exception as e:
+            logger.error("computing %s score failed: %s" % (scorer.method(), str(e)))
 
-        score, scores = scorer.compute_score(gts, res)
-        if type(method) == list:
-            for sc, scs, m in zip(score, scores, method):
-                print("%s: %0.3f" % (m, sc))
-                f_res[m] = sc
-        else:
-            print("%s: %0.3f" % (method, score))
-            f_res[method] = score
+    if "CIDEr" in f_res and "SPICE" in f_res:
+        f_res["SPIDEr"] = (f_res["CIDEr"] + f_res["SPICE"]) / 2.0
     return f_res
