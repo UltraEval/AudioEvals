@@ -7,7 +7,7 @@ single_choice:
     evaluator: prefix-match
     agg: acc
 
-air_char:
+air_chat:
   class: audio_evals.base.EvalTaskCfg
   args:
     dataset: air-chat
