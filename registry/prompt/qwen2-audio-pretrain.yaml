@@ -64,12 +64,12 @@ qwen2-audio-pretrain-sst-it2en:
 qwen2-audio-pretrain-emo:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>listen the audio and judge the emotion of the speaker, the answer must be one of [surprise,anger,neutral,joy,sadness,fear,disgust],answer:'
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Recognize the emotion with keywords in English:'
 
 qwen2-audio-pretrain-sentiment:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>listen the audio and judge the sentiment of the speaker, the answer must be one of [positive,negative,neutral], answer:'
+    template: '<|audio_bos|><|{{WavPath}}|><|audio_eos|>Recognize the sentiment with keywords in English:'
 
 qwen2-audio-pretrain-vocalsound:
   class: audio_evals.prompt.base.Prompt

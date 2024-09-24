@@ -102,3 +102,8 @@ qwen-audio-aqa:
   class: audio_evals.prompt.base.Prompt
   args:
     template: "<audio>{{WavPath}}</audio><|startofanalysis|><|en|><|question|>{{QuestionText}}<|answer|>"
+
+qwen-audio-nsynth:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startofanalysis|><|unknown|><|keyword|><|en|><|notimestamps|><|note_analysis|>"

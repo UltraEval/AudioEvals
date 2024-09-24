@@ -6,3 +6,12 @@ single_choice:
     model: qwen-audio-chat
     evaluator: prefix-match
     agg: acc
+
+air_char:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: air-chat
+    prompt: qa
+    model: qwen-audio-chat
+    evaluator: air-bench-geval
+    agg: airbench-chat
