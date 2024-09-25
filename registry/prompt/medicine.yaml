@@ -30,7 +30,7 @@ Respiratory-crackles-recognizer:
           - type: audio
             value: "{{WavPath}}"
           - type: text
-            value: "Listen to the respiratory sound and determine if crackles are present. Answer with either 'presence' or 'absence' without explanation."
+            value: "Listen to the respiratory sound and determine if crackles are present. Answer with either 'present' or 'absent' without explanation."
 
 Respiratory-wheezes-recognizer:
   class: audio_evals.prompt.base.Prompt
