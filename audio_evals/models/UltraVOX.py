@@ -15,7 +15,7 @@ class UltraVOX(Model):
     def __init__(self, path: str, sample_params: Dict[str, any] = None):
         super().__init__(True, sample_params)  # as a chat model
         logger.debug("start load model from {}".format(path))
-        self.pipe = transformers.pipeline(model=path, trust_remote_code=True)
+        self.pipe = transformers.pipeline(model=path, trust_remote_code=True, device=0)
         logger.debug("model loaded")
         self.max_new_tokens = 30
 
