@@ -18,6 +18,11 @@ qwen-audio-fr:
   args:
     template: "<audio>{{WavPath}}</audio><|startoftranscript|><|fr|><|transcribe|><|fr|><|notimestamps|><|wo_itn|>"
 
+qwen-audio-yue:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startoftranscript|><|yue|><|transcribe|><|yue|><|notimestamps|><|wo_itn|>"
+
 qwen-audio-nl:
   class: audio_evals.prompt.base.Prompt
   args:
@@ -107,3 +112,18 @@ qwen-audio-nsynth:
   class: audio_evals.prompt.base.Prompt
   args:
     template: "<audio>{{WavPath}}</audio><|startofanalysis|><|unknown|><|keyword|><|en|><|notimestamps|><|note_analysis|>"
+
+qwen-audio-emo:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startofanalysis|><|en|><|keyword|><|en|><|notimestamps|><|emotion_recognition|>"
+
+qwen-audio-vocalsound:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startofanalysis|><|en|><|keyword|><|en|><|notimestamps|><|vocal_classification|>"
+
+qwen-audio-caption:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template: "<audio>{{WavPath}}</audio><|startofanalysis|><|unknown|><|caption|><|en|><|notimestamps|><|caption_{}|>"
