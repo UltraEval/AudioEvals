@@ -41,4 +41,4 @@ Respiratory-wheezes-recognizer:
           - type: audio
             value: "{{WavPath}}"
           - type: text
-            value: "Listen to the respiratory sound and determine if wheezes are present. Answer with either 'presence' or 'absence' without explanation."
+            value: "Listen to the respiratory sound and determine if wheezes are present. Answer with either 'present' or 'absent' without explanation."
