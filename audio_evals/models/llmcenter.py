@@ -32,7 +32,7 @@ class LlmCenterModel(APIModel):
             "userToken": cls.user_token,
             "expTime": str(cls.timeout),
         }
-        url = "https://llm-center.ali.modelbest.cn/llm/client/token/access_token"
+        url = "https://llm-center.modelbest.cn/llm/client/token/access_token"
         response = requests.get(url, params=payload)
         if response.status_code == 200:
             # 解析返回的JSON数据
@@ -86,9 +86,7 @@ class LlmCenterModel(APIModel):
             "app-code": "interface_evaluation",
             "Content-Type": "application/json",
         }
-        url = (
-            "https://llm-center.ali.modelbest.cn/llm/client/conv/accessLargeModel/sync"
-        )
+        url = "https://llm-center.modelbest.cn/llm/client/conv/accessLargeModel/sync"
         response = requests.post(url, json=payload, headers=headers)
         if response.status_code == 200:
             msg_data = response.json()
