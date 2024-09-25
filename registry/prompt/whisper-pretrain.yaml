@@ -1,3 +1,10 @@
+whisper-asr:
+  class: audio_evals.prompt.base.Prompt
+  args:
+    template:
+      audio: '{{WavPath}}'
+      generate_kwargs: {}
+
 whisper-asr-zh:
   class: audio_evals.prompt.base.Prompt
   args:

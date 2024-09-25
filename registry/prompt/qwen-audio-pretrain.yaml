@@ -126,4 +126,4 @@ qwen-audio-vocalsound:
 qwen-audio-caption:
   class: audio_evals.prompt.base.Prompt
   args:
-    template: "<audio>{{WavPath}}</audio><|startofanalysis|><|unknown|><|caption|><|en|><|notimestamps|><|caption_{}|>"
+    template: "<audio>{{WavPath}}</audio><|startofanalysis|><|unknown|><|caption|><|en|><|notimestamps|><|caption_clotho|>"
