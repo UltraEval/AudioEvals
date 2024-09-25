@@ -28,7 +28,7 @@ qwen-audio-pretrain-offline:
   class: audio_evals.models.offline_model.OfflinePretrainModel
   args:
     is_chat: False
-    path: qwen/Qwen-Audio
+    path: Qwen/Qwen-Audio
     padding_side: left
     sample_params:
       do_sample: false
