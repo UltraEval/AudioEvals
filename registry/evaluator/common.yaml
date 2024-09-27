@@ -1,4 +1,4 @@
-dumpy:
+dump:
   class: audio_evals.evaluator.base.Dump
   args: {}
 
