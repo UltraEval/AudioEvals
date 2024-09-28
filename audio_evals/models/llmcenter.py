@@ -1,4 +1,5 @@
 import os
+import random
 import time
 from typing import Dict
 
@@ -100,4 +101,6 @@ class LlmCenterModel(APIModel):
 
         assert 0 == msg_data["code"], msg_data
         content = msg_data["data"]["messages"][0]["content"]
+        if str(self.model_id) in ["139", "140"]:
+            time.sleep(random.uniform(1, 30))  # 防止频繁请求
         return content
