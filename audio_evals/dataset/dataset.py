@@ -39,6 +39,7 @@ class RelativePath(JsonlFile):
             for line in f:
                 doc = json.loads(line)
                 for k, v in doc.items():
+                    # automatically convert relative paths to absolute paths
                     temp = os.path.join(self.file_path, str(v))
                     if os.path.exists(temp) and os.path.isfile(temp):
                         doc[k] = temp

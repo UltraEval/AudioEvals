@@ -1,7 +1,7 @@
-nsyth:
+nsynth:
   class: audio_evals.dataset.huggingface.Huggingface
   args:
     default_task: instrument_recognition
-    name: jg583/NSynth
+    name: TwinkStart/Nsynth
     split: test
     ref_col: instrument_family_str

@@ -1,5 +1,15 @@
 
+![assets/logo.png](assets/logo.png)
+
+# leaderboard
+![assets/audio_foundation.png](assets/audio_foundation.png)
+
+# support datasets
+
+![assets/dataset_distribute.png](assets/dataset_distribute.png)
 # News/Updates:
+
+2024/10/8 🎉 we support 30+ datasets!
 
 2024/9/7 🎉 we support `vocalsound`, `MELD` benchmark!
 
@@ -59,12 +69,6 @@ after program executed, you will get the performance in console and detail resul
 
 > () is offical performance
 
-| model      | multilingual_librispeech          | librispeech                                                                             | FLEURS | covost2                                                                                            | KeSpeech         | WenetSpeech                       | ClothoAQA | AISHELL-1 |
-|------------|-----------------------------------|-----------------------------------------------------------------------------------------|-----|----------------------------------------------------------------------------------------------------|------------------|-----------------------------------|-----------|-----------|
-| qwen-audio | mls_french 32.84 mls_german 49.07 | dev-clean 1.85(1.8);  dev-other 4.14(4.0)  test-clean   2.21(2.0), test-other 4.27(4.2) | 25 | en-zh 41.24（41.5）, zh-en 15.93（15.7）, en-de 25.13（25.1）;en-ar 0.16; en-ca 1.5, en-cy 1.2 , en-et 0.67 | 6.6 | test_meeting 11.23, test_net 9.25 | 58.86（57.9） | （1.3） |
-
-
-
 
 # Usage
 
@@ -80,19 +84,11 @@ python audio_evals/main.py --dataset <dataset_name> --model <model_name>
 
 The `--dataset` parameter allows you to specify which dataset to use for evaluation. The following options are available:
 
-- `KeSpeech`
-- `librispeech-test-clean`
-- `librispeech-dev-clean`
-- `librispeech-test-other`
-- `librispeech-dev-other`
-- `mls_dutch`
-- `mls_french`
-- `mls_german`
-- `mls_italian`
-- `mls_polish`
-- `mls_portuguese`
-- `mls_spanish`
-- `fleurs-zh`
+- `tedlium-release1`
+- `tedlium-release2`
+- `tedlium-release3`
+- `catdog`
+- `audiocaps`
 - `covost2-en-ar`
 - `covost2-en-ca`
 - `covost2-en-cy`
@@ -109,20 +105,91 @@ The `--dataset` parameter allows you to specify which dataset to use for evaluat
 - `covost2-en-tr`
 - `covost2-en-zh`
 - `covost2-zh-en`
+- `covost2-it-en`
+- `covost2-fr-en`
+- `covost2-es-en`
+- `covost2-de-en`
+- `GTZAN`
+- `TESS`
+- `nsynth`
+- `meld-emo`
+- `meld-sentiment`
+- `clotho-aqa`
+- `ravdess-emo`
+- `ravdess-gender`
+- `COVID-recognizer`
+- `respiratory-crackles`
+- `respiratory-wheezes`
+- `KeSpeech`
+- `audio-MNIST`
+- `librispeech-test-clean`
+- `librispeech-dev-clean`
+- `librispeech-test-other`
+- `librispeech-dev-other`
+- `mls_dutch`
+- `mls_french`
+- `mls_german`
+- `mls_italian`
+- `mls_polish`
+- `mls_portuguese`
+- `mls_spanish`
+- `heartbeat_sound`
+- `vocalsound`
+- `fleurs-zh`
+- `voxceleb1`
+- `voxceleb2`
+- `chord-recognition`
+- `wavcaps-audioset`
+- `wavcaps-freesound`
+- `wavcaps-soundbible`
+- `air-foundation`
+- `air-chat`
+- `desed`
+- `peoples-speech`
 - `WenetSpeech-test-meeting`
 - `WenetSpeech-test-net`
+- `gigaspeech`
+- `aishell-1`
+- `cv-15-en`
+- `cv-15-zh`
+- `cv-15-fr`
+- `cv-15-yue`
+
 
 ### support dataset detail
-| <dataset_name> | name                     | domain                            | metric |
-|--------------|--------------------------|-----------------------------------|--------|
-| clotho-aqa   | ClothoAQA                | QAQ(AudioQA)                      | acc    |
-| mls-*        | multilingual_librispeech | ASR(Automatic Speech Recognition) | wer    |
-| KeSpeech     | KeSpeech | ASR | cer    |
-| librispeech-* | librispeech              | ASR                               | wer    |
-| fleurs-*     | FLEURS                   | ASR                               | wer    |
-| aisheel1     | AISHELL-1                | ASR                               | wer    |
-| WenetSpeech-* | WenetSpeech              | ASR                               | wer    |
-| covost2-*    | covost2                  | STT(Speech Text Translation)      | BLEU   |
+| <dataset_name>    | name                     | task                              | domain             | metric     |
+|-------------------|--------------------------|-----------------------------------|--------------------|------------|
+| tedlium-*         | tedlium                  | ASR(Automatic Speech Recognition) | speech             | wer        |
+| clotho-aqa        | ClothoAQA                | AQA(AudioQA)                      | sound              | acc        |
+| catdog            | catdog                   | AQA                               | sound              | acc        |
+| mls-*             | multilingual_librispeech | ASR                               | speech             | wer        |
+| KeSpeech          | KeSpeech                 | ASR                               | speech             | cer        |
+| librispeech-*     | librispeech              | ASR                               | speech             | wer        |
+| fleurs-*          | FLEURS                   | ASR                               | speech             | wer        |
+| aisheel1          | AISHELL-1                | ASR                               | speech             | wer        |
+| WenetSpeech-*     | WenetSpeech              | ASR                               | speech             | wer        |
+| covost2-*         | covost2                  | STT(Speech Text Translation)      | speech             | BLEU       |
+| GTZAN             | GTZAN                    | MQA(MusicQA)                      | music              | acc        |
+| TESS              | TESS                     | EMO(emotional recognition)        | speech             | acc        |
+| nsynth            | nsynth                   | MQA                               | music              | acc        |
+| meld-emo          | meld                     | EMO                               | speech             | acc        |
+| meld-sentiment    | meld                     | SEN(sentiment recognition)        | speech             | acc        |
+| ravdess-emo       | ravdess                  | EMO                               | speech             | acc        |
+| ravdess-gender    | ravdess                  | GEND(gender recognition)          | speech             | acc        |
+| COVID-recognizer  | COVID                    | MedicineCls                       | medicine           | acc        |
+| respiratory-*     | respiratory              | MedicineCls                       | medicine           | acc        |
+| audio-MNIST       | audio-MNIST              | AQA                               | speech             | acc        |
+| heartbeat_sound   | heartbeat                | MedicineCls                       | medicine           | acc        |
+| vocalsound        | vocalsound               | MedicineCls                       | medicine           | acc        |
+| voxceleb*         | voxceleb                 | GEND                              | speech             | acc        |
+| chord-recognition | chord                    | MQA                               | music              | acc        |
+| wavcaps-*         | wavcaps                  | AC(AudioCaption)                  | sound              | acc        |
+| air-foundation    | AIR-BENCH                | AC,GEND,MQA,EMO                   | sound,music,speech | acc        |
+| air-chat          | AIR-BENCH                | AC,GEND,MQA,EMO                   | sound,music,speech | GPT4-score |
+| desed             | desed                    | AQA                               | sound              | acc        |
+| peoples-speech    | peoples-speech           | ASR                               | speech             | wer        |
+| gigaspeech        | gigaspeech               | ASR                               | speech             | wer        |
+| cv-15-*           | common voice 15          | ASR                               | speech             | wer        |
 
 eval your dataset: [docs/how add a dataset.md](docs%2Fhow%20add%20a%20dataset.md)
 
