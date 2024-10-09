@@ -96,11 +96,18 @@ class LlmCenterModel(APIModel):
                 f"请求失败，状态码: {response.status_code}, {response.text}"
             )
 
-        if msg_data["code"] in {102503}:
+        if msg_data["code"] in {
+            102501,  # 超过模型输入限制
+            102503,  # 模型内部异常
+            102502,  # 模型安审不通过,
+            102505,  # 模型输出内容为空
+            102504,  # 模型输出大于主动超时时间
+            102506,  # 模型服务商网络链接异常
+        }:
             raise EarlyStop(f"### 请求失败不用重试 msg_data: {msg_data}")
 
         assert 0 == msg_data["code"], msg_data
         content = msg_data["data"]["messages"][0]["content"]
         if str(self.model_id) in ["139", "140"]:
-            time.sleep(random.uniform(1, 30))  # 防止频繁请求
+            time.sleep(random.uniform(1, 10))  # 防止频繁请求
         return content

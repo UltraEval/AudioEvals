@@ -16,6 +16,9 @@ class ContentExtract(Process):
 
     def __call__(self, answer: str) -> str:
         try:
+            answer = answer.strip()
+            if answer.startswith("```json"):
+                answer = answer[7:-3].strip()
             return json.loads(answer)["content"]
         except Exception as e:
             try:
