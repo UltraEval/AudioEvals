@@ -6,7 +6,7 @@
 > - This modal primarily focuses on traditional audio tasks such as Automatic Speech Recognition (ASR) and Text-to-Speech (TTS).
 >
 > **Chat Modal**: Audio + Text → Text
-> - This modal is designed for interactive applications like chatbots and voice assistants. It includes tasks such as Audio Question Answering (AudioQA), Music Question Answering (MusicQA), Medicine Classification and emotional recognition.
+> - This modal is designed for interactive applications like chatbots and voice assistants. It includes tasks such as Audio Question Answering, Music Question Answering, Medicine Classification and emotional recognition.
 
 <table>
 <tr>
