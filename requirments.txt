@@ -17,3 +17,4 @@ more_itertools
 pandas
 zhconv
 pycocoevalcap
+regex

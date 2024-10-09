@@ -2,7 +2,18 @@
 ![assets/logo.png](assets/logo.png)
 
 # leaderboard
-![assets/audio_foundation.png](assets/audio_foundation.png)
+> **Foundation Modal**: Audio + Limited Text (Optional) → Text
+> - This modal primarily focuses on traditional audio tasks such as Automatic Speech Recognition (ASR) and Text-to-Speech (TTS).
+>
+> **Chat Modal**: Audio + Text → Text
+> - This modal is designed for interactive applications like chatbots and voice assistants. It includes tasks such as Audio Question Answering (AudioQA), Music Question Answering (MusicQA), Medicine Classification and emotional recognition.
+
+<table>
+<tr>
+<td><img src="assets/audio_foundation.png" alt="图片 1 描述"></td>
+<td><img src="assets/audio_chat_leaderboard.png" alt="图片 2 描述"></td>
+</tr>
+</table>
 
 # support datasets
 
