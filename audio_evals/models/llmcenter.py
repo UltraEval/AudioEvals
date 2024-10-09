@@ -105,9 +105,9 @@ class LlmCenterModel(APIModel):
             102506,  # 模型服务商网络链接异常
         }:
             raise EarlyStop(f"### 请求失败不用重试 msg_data: {msg_data}")
-
+        if msg_data["code"] == 102429:
+            time.sleep(random.uniform(0, 2))
+            raise RuntimeError(f"### 请求失败，重试 msg_data: {msg_data}")
         assert 0 == msg_data["code"], msg_data
         content = msg_data["data"]["messages"][0]["content"]
-        if str(self.model_id) in ["139", "140"]:
-            time.sleep(random.uniform(1, 10))  # 防止频繁请求
         return content
