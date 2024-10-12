@@ -24,6 +24,20 @@ qwen2-audio-chat:
        repetition_penalty: 1.0
        use_cache: True
 
+qwen-audio-chat-offline:
+   class: audio_evals.models.offline_model.OfflineModel
+   args:
+     is_chat: True
+     path: Qwen/Qwen-Audio-Chat
+     sample_params:
+       do_sample: false
+       max_new_tokens: 256
+       min_new_tokens: 1
+       length_penalty: 1.0
+       num_return_sequences: 1
+       repetition_penalty: 1.0
+       use_cache: True
+
 qwen-audio-pretrain-offline:
   class: audio_evals.models.offline_model.OfflinePretrainModel
   args:

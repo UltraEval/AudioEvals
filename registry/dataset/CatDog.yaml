@@ -4,4 +4,4 @@ catdog:
     default_task: catdog_identify
     name: TwinkStart/CatDog
     split: test
-    ref_col: answer
+    ref_col: label
