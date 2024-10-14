@@ -118,13 +118,15 @@ class BLEU(AggPolicy):
 class Coco(AggPolicy):
     def _agg(self, score_detail: List[Dict[str, any]]) -> Dict[str, float]:
         predl, refl = [str(item["pred"]) for item in score_detail], [
-            str(item["ref"]) for item in score_detail
+            item["ref"] for item in score_detail
         ]
 
         pred, ref = [], []
         for p, r in zip(predl, refl):
             if r:
                 pred.append(p)
+                if isinstance(r, str):
+                    r = [r]
                 ref.append(r)
         res = compute_caption(ref, pred)
         return res

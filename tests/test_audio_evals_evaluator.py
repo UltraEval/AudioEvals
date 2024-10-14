@@ -29,11 +29,12 @@ def test_coco():
     e = registry.get_evaluator("coco")
     for s0, s1 in [
         (
-            "An aircraft engine is taking off",
-            "plane engine is taking off",
+            "A melodious chime is composed mostly of ascending scales.",
+            ["A melodious chime is composed mostly of ascending scales."],
+            # "A set of three tones echo and then repeat",],
         ),
     ]:
-        print(e(s1, s0))
+        print(e(s0, s1))
 
 
 def test_tmp():
