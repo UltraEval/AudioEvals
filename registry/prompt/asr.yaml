@@ -7,4 +7,4 @@ asr:
           - type: audio
             value: "{{WavPath}}"
           - type: text
-            value: "listen the audio, output the content with format {\"content\": \"\"}"
+            value: "listen the audio, output the audio content with format {\"content\": \"\"}"

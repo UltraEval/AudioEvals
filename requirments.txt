@@ -18,3 +18,5 @@ pandas
 zhconv
 pycocoevalcap
 regex
+openai
+websockets
