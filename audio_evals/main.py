@@ -44,6 +44,7 @@ def main():
     if not args.save:
         os.makedirs("res/", exist_ok=True)
         args.save = f"res/{time_id}-{args.model}-{args.dataset}.jsonl"
+    overall_save = args.save.replace(".jsonl", "-overall.json")
 
     if args.registry_path:
         paths = args.registry_path.split()
@@ -68,9 +69,11 @@ def main():
         recorder=Recorder(args.save),
     )
     res = t.run(args.limit)
-    print(res[0])
+    with open(overall_save, "w") as f:
+        f.write(str(res[0]))
     with open(args.save, "r") as f:
         print(f.read())
+    print(res[0])
 
 
 # Press the green button in the gutter to run the script.

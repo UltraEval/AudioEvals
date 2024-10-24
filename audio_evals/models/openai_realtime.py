@@ -1,17 +1,11 @@
-import base64
-import json
 import logging
-import os
 from typing import Dict, Any
-import openai
-
 from audio_evals.models.model import APIModel
-from audio_evals.base import PromptStruct
+from audio_evals.base import PromptStruct, EarlyStop
 import asyncio
 import json
 import os
 import base64
-import wave
 
 import websockets
 from pydub import AudioSegment
@@ -21,7 +15,7 @@ import soundfile as sf
 from scipy.signal import resample
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-OPENAI_URL = os.getenv("OPENAI_URL", "https://api.openai.com")
+OPENAI_URL = os.getenv("OPENAI_URL", "api.openai.com")
 
 logger = logging.getLogger(__name__)
 
@@ -175,6 +169,7 @@ async def audio_inf(url, text, audio_file):
     }
 
     async with websockets.connect(url, extra_headers=headers) as websocket:
+
         print("Connected to OpenAI Realtime API")
 
         # Set up the session
@@ -197,6 +192,16 @@ async def audio_inf(url, text, audio_file):
         audio_files = [audio_file]
         await stream_audio_files(websocket, audio_files)
         audio_buffer = bytearray()
+        response_create_event = {
+            "type": "response.create",
+            "response": {
+                "modalities": [
+                    "text",
+                ],
+            },
+        }
+        await send_event(websocket, response_create_event)
+
         try:
             while True:
                 message = await websocket.recv()
@@ -255,6 +260,7 @@ class GPT4oAudio(APIModel):
         assert "OPENAI_API_KEY" in os.environ, ValueError(
             "not found OPENAI_API_KEY in your ENV"
         )
+        logger.info(f"OpenAI Realtime API URL: {self.url}")
 
     def _inference(self, prompt: PromptStruct, **kwargs) -> str:
         audio, text = None, None
@@ -263,4 +269,5 @@ class GPT4oAudio(APIModel):
                 audio = line["value"]
             if line["type"] == "text":
                 text = line["value"]
+        assert os.path.exists(audio), EarlyStop(f"not found audio file: {audio}")
         return asyncio.run(audio_inf(self.url, text, audio))
