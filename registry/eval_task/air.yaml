@@ -15,3 +15,12 @@ air_chat:
     model: qwen-audio-chat
     evaluator: air-bench-geval
     agg: airbench-chat
+
+single_choice_with_answer:
+  class: audio_evals.base.EvalTaskCfg
+  args:
+    dataset: mmau
+    prompt: single_choice_with_answer
+    model: qwen-audio-chat
+    evaluator: choice-strings-match
+    agg: acc
