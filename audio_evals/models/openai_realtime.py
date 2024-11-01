@@ -139,9 +139,13 @@ async def stream_audio_files(websocket, file_paths):
             else {}
         )
 
-        audio_data, original_sample_rate = sf.read(
-            audio_file_path, dtype="int16", **extra_params
-        )
+        try:
+            audio_data, original_sample_rate = sf.read(
+                audio_file_path, dtype="int16", **extra_params
+            )
+        except Exception as e:
+            logger.error(f"Error reading audio file: {e}")
+            raise EarlyStop(f"sf reading audio file failed {e}")
 
         if original_sample_rate != sample_rate:
             audio_data = resample_audio(audio_data, original_sample_rate, sample_rate)
