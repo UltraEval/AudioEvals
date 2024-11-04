@@ -20,4 +20,4 @@ single_choice_with_answer:
           - type: audio
             value: "{{WavPath}}"
           - type: text
-            value: "{{question}}\nA answer should be on in {{choices}} without explain\nanswer:"
+            value: "{question}  Select one option from the provided choices.\n{choices}"
