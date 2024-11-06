@@ -1,6 +1,8 @@
 import json
 from typing import List, Dict
 
+from tqdm import tqdm
+
 
 class ResumeDataset:
     def __init__(self, raw_dataset: str, resume_file: str):
@@ -15,12 +17,12 @@ class ResumeDataset:
     def load(self) -> List[Dict[str, any]]:
         data = self.raw_dataset.load()
         with open(self.resume_file, "r") as f:
-            for line in f:
+            for line in tqdm(f):
                 doc = json.loads(line)
                 if doc["type"] == "error":
                     continue
                 idx = int(doc["id"])
-                data[idx]["eval_info"] = (
-                    data[idx].get("eval_info", {}).update({doc["type"]: doc["data"]})
-                )
+                if "eval_info" not in data[idx]:
+                    data[idx]["eval_info"] = {}
+                data[idx]["eval_info"].update({doc["type"]: doc["data"]})
         return data
