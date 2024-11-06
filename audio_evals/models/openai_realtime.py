@@ -20,7 +20,7 @@ from scipy.signal import resample
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_URL = os.getenv("OPENAI_URL", "api.openai.com")
 
-PYDUB_SUPPORTED_FORMATS = ["wav", "mp3", "flac", "aac", "m4a"]
+PYDUB_SUPPORTED_FORMATS = [".wav", ".mp3", ".flac", ".aac", ".m4a"]
 
 logger = logging.getLogger(__name__)
 
