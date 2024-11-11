@@ -264,6 +264,11 @@ async def audio_inf(url, text, audio_file):
                         sf.write(wav_file, audio_array, samplerate=24000)
                     audio_buffer.clear()
                     logger.debug("🔵 AI finished speaking.")
+                elif event["type"] == "response.done":
+                    if event["response"]["status"] == "failed":
+                        raise EarlyStop(
+                            "AI failed: {}".format(event["response"]["status_details"])
+                        )
 
         except websockets.exceptions.ConnectionClosed as e:
             logger.error(f"{e} Disconnected from OpenAI Realtime API")
